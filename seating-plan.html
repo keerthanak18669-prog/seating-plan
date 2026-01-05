@@ -6,19 +6,30 @@
 
 <style>
   * {
+.logo {
+  width: 80px;
+  margin-bottom: 12px;
+}
+
     box-sizing: border-box;
   }
 
   body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    background: #f2f4f8;
-    font-family: "Book Antiqua", Georgia, serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+
+  background-image: url("images/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  font-family: "Book Antiqua", Georgia, serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
   .card {
     background: white;
@@ -66,6 +77,8 @@
 <body>
 
 <div class="card">
+<img src="images/logo.png" class="logo">
+
   <h2>Candidate Seating Plan</h2>
 
   <input type="text" id="cid" placeholder="Enter Candidate ID">
@@ -132,3 +145,4 @@ function check() {
 
 </body>
 </html>
+
