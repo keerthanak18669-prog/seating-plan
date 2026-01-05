@@ -2,17 +2,73 @@
 <html>
 <head>
   <title>Candidate Seating Plan</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      width: 350px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 16px;
+      text-align: left;
+    }
+  </style>
 </head>
 
-<body style="text-align:center; margin-top:80px; font-family:Arial;">
+<body>
 
-  <h2>Candidate Seating Plan</h2>
+  <div class="card">
+    <h2>Candidate Seating Plan</h2>
 
-  <input id="cid" placeholder="Enter Candidate ID">
-  <br><br>
-  <button onclick="check()">Search</button>
+    <input id="cid" placeholder="Enter Candidate ID">
+    <br>
+    <button onclick="check()">Search</button>
 
-  <p id="result" style="font-size:18px; font-weight:bold;"></p>
+    <div id="result"></div>
+  </div>
 
   <script>
     /* ===== CANDIDATE DATA ===== */
@@ -54,20 +110,22 @@
     /* ===== SEARCH FUNCTION ===== */
     function check() {
       const id = document.getElementById("cid").value.trim();
-      const result = document.getElementById("result");
+      const res = document.getElementById("result");
 
       if (data[id]) {
-        result.innerHTML =
-          "Candidate ID: " + id + "<br>" +
-          "Candidate Name: " + data[id].name + "<br>" +
-          "System Number: " + data[id].system + "<br>" +
-          "Lab: " + data[id].lab + "<br>" +
-          "Floor: " + data[id].floor;
+        res.innerHTML = `
+          <b>Name:</b> ${data[id].name}<br>
+          <b>System No:</b> ${data[id].system}<br>
+          <b>Lab:</b> ${data[id].lab}<br>
+          <b>Floor:</b> ${data[id].floor}
+        `;
       } else {
-        result.innerText = "❌ Candidate ID not found";
+        res.innerHTML = "<span style='color:red;'>❌ Candidate ID not found</span>";
       }
     }
   </script>
 
 </body>
 </html>
+
+
