@@ -1,82 +1,67 @@
-<!DOCTYPE html>
-<html>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: #f2f4f8;
+    font-family: "Book Antiqua", Georgia, serif;
 
-<head>
-  <title>Candidate Seating Plan</title>
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f2f4f8;
-      font-family: Arial, sans-serif;
-    }
+  .card {
+    background: white;
+    width: 92%;
+    max-width: 420px;
+    padding: 30px 25px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    text-align: center;
+  }
 
-    .card {
-      background: white;
-      width: 90%;
-      max-width: 400px;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align: center;
-    }
+  h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+  }
 
-    h2 {
-      margin-bottom: 20px;
-    }
+  input {
+    width: 100%;
+    padding: 14px;
+    font-size: 17px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    border: 1px solid #bbb;
+    font-family: "Book Antiqua", Georgia, serif;
+  }
 
-    input {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
+  button {
+    width: 100%;
+    padding: 14px;
+    font-size: 17px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Book Antiqua", Georgia, serif;
+  }
 
-    button {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+  button:active {
+    transform: scale(0.98);
+  }
 
-    button:hover {
-      background-color: #218838;
-    }
+  #result {
+    margin-top: 22px;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+</style>
+/* ===== CANDIDATE DATA ===== */
 
-    #result {
-      margin-top: 20px;
-      font-size: 16px;
-      font-weight: bold;
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="card">
-    <h2>Candidate Seating Plan</h2>
-
-    <input id="cid" placeholder="Enter Candidate ID">
-
-    <button onclick="check()">Search</button>
-
-    <p id="result"></p>
-  </div>
-
-  <!-- 🔴 DO NOT TOUCH BELOW (DATA + LOGIC) -->
-
-  <script>
+<script>
     /* ===== CANDIDATE DATA ===== */
     const data = {
       "2024AD05055": { name: "ALOK KUMAR OJHA", system: "1", lab: "24A", floor: "GND" },
@@ -110,10 +95,9 @@
 "2024AA05867": { name: "Durgesh Kumar Yadav", system: "29", lab: "24A", floor: "GND" },
 "2024AA05484": { name: "PERI A S RAJA SRIRAM", system: "30", lab: "24A", floor: "GND" },
 
-    };
 
-    
-    function check() {
+    };
+function check() {
       const id = document.getElementById("cid").value.trim();
       const res = document.getElementById("result");
 
@@ -129,6 +113,3 @@
       }
     }
   </script>
-
-</body>
-</html>
