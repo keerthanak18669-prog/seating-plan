@@ -487,7 +487,7 @@
 
 
 function check() {
-  const id = document.getElementById("cid").value.trim();
+ const id = document.getElementById("cid").value.trim().toUpperCase();
   const res = document.getElementById("result");
 
   if (data[id]) {
@@ -505,5 +505,6 @@ function check() {
 
 </body>
 </html>
+
 
 
