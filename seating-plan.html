@@ -1,35 +1,35 @@
-<!DOCTYPE html>
-<html>
 <head>
   <title>Candidate Seating Plan</title>
 
   <style>
     body {
-      font-family: Book auntiqua, inria Serif;
-      background: #f2f4f8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      margin: 0;
+      padding: 0;
       height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f2f4f8;
+      font-family: Arial, sans-serif;
     }
 
     .card {
       background: white;
-      padding: 30px;
-      width: 350px;
+      width: 90%;
+      max-width: 400px;
+      padding: 25px;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       text-align: center;
     }
 
     h2 {
       margin-bottom: 20px;
-      color: #333;
     }
 
     input {
-      width: 90%;
-      padding: 10px;
+      width: 100%;
+      padding: 12px;
       font-size: 16px;
       margin-bottom: 15px;
       border-radius: 5px;
@@ -37,9 +37,10 @@
     }
 
     button {
-      padding: 10px 20px;
+      width: 100%;
+      padding: 12px;
       font-size: 16px;
-      background: #4CAF50;
+      background-color: #28a745;
       color: white;
       border: none;
       border-radius: 5px;
@@ -47,28 +48,17 @@
     }
 
     button:hover {
-      background: #45a049;
+      background-color: #218838;
     }
 
     #result {
       margin-top: 20px;
       font-size: 16px;
-      text-align: left;
+      font-weight: bold;
     }
   </style>
 </head>
 
-<body>
-
-  <div class="card">
-    <h2>Candidate Seating Plan</h2>
-
-    <input id="cid" placeholder="Enter Candidate ID">
-    <br>
-    <button onclick="check()">Search</button>
-
-    <div id="result"></div>
-  </div>
   
 <!-- 🔴 DO NOT TOUCH BELOW -->
 
@@ -129,6 +119,7 @@
 
 </body>
 </html>
+
 
 
 
