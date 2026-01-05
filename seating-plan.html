@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Candidate Seating Plan</title>
+
 <style>
   * {
     box-sizing: border-box;
@@ -9,7 +15,6 @@
     min-height: 100vh;
     background: #f2f4f8;
     font-family: "Book Antiqua", Georgia, serif;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,7 +42,6 @@
     margin-bottom: 16px;
     border-radius: 8px;
     border: 1px solid #bbb;
-    font-family: "Book Antiqua", Georgia, serif;
   }
 
   button {
@@ -49,7 +53,6 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-family: "Book Antiqua", Georgia, serif;
   }
 
   #result {
@@ -58,6 +61,19 @@
     line-height: 1.6;
   }
 </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>Candidate Seating Plan</h2>
+
+  <input type="text" id="cid" placeholder="Enter Candidate ID">
+
+  <button onclick="check()">Search</button>
+
+  <div id="result"></div>
+</div>
 
 <script>
     /* ===== CANDIDATE DATA ===== */
@@ -93,22 +109,26 @@
 "2024AA05867": { name: "Durgesh Kumar Yadav", system: "29", lab: "24A", floor: "GND" },
 "2024AA05484": { name: "PERI A S RAJA SRIRAM", system: "30", lab: "24A", floor: "GND" },
 
+
     };
 
+
 function check() {
-      const id = document.getElementById("cid").value.trim();
-      const res = document.getElementById("result");
+  const id = document.getElementById("cid").value.trim();
+  const res = document.getElementById("result");
 
-      if (data[id]) {
-        res.innerHTML = `
-          <b>Name:</b> ${data[id].name}<br>
-          <b>System No:</b> ${data[id].system}<br>
-          <b>Lab:</b> ${data[id].lab}<br>
-          <b>Floor:</b> ${data[id].floor}
-        `;
-      } else {
-        res.innerHTML = "<span style='color:red;'>❌ Candidate ID not found</span>";
-      }
-    }
-  </script>
+  if (data[id]) {
+    res.innerHTML = `
+      <b>Name:</b> ${data[id].name}<br>
+      <b>System No:</b> ${data[id].system}<br>
+      <b>Lab:</b> ${data[id].lab}<br>
+      <b>Floor:</b> ${data[id].floor}
+    `;
+  } else {
+    res.innerHTML = "<span style='color:red;'>❌ Candidate ID not found</span>";
+  }
+}
+</script>
 
+</body>
+</html>
