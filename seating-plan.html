@@ -58,3 +58,20 @@
     line-height: 1.6;
   }
 </style>
+
+function check() {
+      const id = document.getElementById("cid").value.trim();
+      const res = document.getElementById("result");
+
+      if (data[id]) {
+        res.innerHTML = `
+          <b>Name:</b> ${data[id].name}<br>
+          <b>System No:</b> ${data[id].system}<br>
+          <b>Lab:</b> ${data[id].lab}<br>
+          <b>Floor:</b> ${data[id].floor}
+        `;
+      } else {
+        res.innerHTML = "<span style='color:red;'>❌ Candidate ID not found</span>";
+      }
+    }
+  </script>
