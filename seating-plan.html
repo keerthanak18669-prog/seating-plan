@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+
 <head>
   <title>Candidate Seating Plan</title>
 
@@ -59,7 +62,7 @@
   </style>
 </head>
 
-  <body>
+<body>
 
   <div class="card">
     <h2>Candidate Seating Plan</h2>
@@ -70,7 +73,8 @@
 
     <p id="result"></p>
   </div>
-<!-- 🔴 DO NOT TOUCH BELOW -->
+
+  <!-- 🔴 DO NOT TOUCH BELOW (DATA + LOGIC) -->
 
   <script>
     /* ===== CANDIDATE DATA ===== */
@@ -106,10 +110,9 @@
 "2024AA05867": { name: "Durgesh Kumar Yadav", system: "29", lab: "24A", floor: "GND" },
 "2024AA05484": { name: "PERI A S RAJA SRIRAM", system: "30", lab: "24A", floor: "GND" },
 
-
     };
 
-    /* ===== SEARCH FUNCTION ===== */
+    
     function check() {
       const id = document.getElementById("cid").value.trim();
       const res = document.getElementById("result");
@@ -129,10 +132,3 @@
 
 </body>
 </html>
-
-</body>
-
-
-
-
-
