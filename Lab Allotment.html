@@ -59,99 +59,68 @@
   <h2>Bangalore – MVJ College of Engineering</h2>
   <h4>3rd Jan 2026 | FN Session | Lab Allotment</h4>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Candidate ID</th>
-        <th>Candidate Name</th>
-        <th>System No</th>
-        <th>Program</th>
-        <th>Sub Program</th>
-        <th>Lab No</th>
-        <th>Floor</th>
-        <th>Present</th>
-      </tr>
-    </thead>
+  <script>
+const data = {
+"2024AD05055": { name: "ALOK KUMAR OJHA", system: "1", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AC05834": { name: "DEEPAK AGARWAL", system: "2", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AC05940": { name: "NIKHILA", system: "3", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AA05155": { name: "Ashwani Kumar Jaiswal", system: "4", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2025AA05491": { name: "DEEPAK S", system: "5", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024DC04063": { name: "ILANGO S", system: "6", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2025DA04265": { name: "CHANDAN KUMAR", system: "7", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AC05922": { name: "NISHIT UPAL", system: "8", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024CC21022": { name: "HARSHAVARTHINI T", system: "9", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AD05493": { name: "SWAGATIKA SAHOO", system: "10", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AC05512": { name: "MONIKA", system: "11", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2025AB05104": { name: "SHILPI", system: "12", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AC05442": { name: "AVINASH CHANDRA", system: "13", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"202520CA032": { name: "FREDRICK V", system: "14", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2025CA93045": { name: "SHIVARAJ KUMAR POOJAR", system: "15", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2025CA08029": { name: "VAIBHAV BHASKAR", system: "16", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AA05351": { name: "Bodhit Kumar Gupta", system: "17", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AC05978": { name: "CHELLA VENKATA GOPIKRISHNA", system: "18", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AC05401": { name: "M PRAVEENKUMAR", system: "19", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AC05157": { name: "KARTHIKEYAN R", system: "20", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AC05511": { name: "DEBANJAN CHAUDHURI", system: "21", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AA05960": { name: "Nagendra VSPR Kunuturi", system: "22", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AC05463": { name: "SANDEEP NEGI", system: "23", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AC05623": { name: "HRITHIKA L", system: "24", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AA05868": { name: "Murikinati R C Reddy", system: "25", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2022AC05092": { name: "TADI YASWANTH SRI RAM", system: "26", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AA05769": { name: "KIRANJEET KAUR ISHAR", system: "27", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AA05466": { name: "Akash Verma", system: "28", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AA05867": { name: "Durgesh Kumar Yadav", system: "29", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+"2024AA05484": { name: "PERI A S RAJA SRIRAM", system: "30", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+										
 
-    <tbody>
-      <tr>
-        <td>2024AD05055</td>
-        <td>ALOK KUMAR OJHA</td>
-        <td>1</td>
-        <td>CLUSTER</td>
-        <td>EC2 M Mid Sem</td>
-        <td>24A</td>
-        <td>GND</td>
-        <td><input type="checkbox"></td>
-      </tr>
+};
 
-      <tr>
-        <td>2024AC05834</td>
-        <td>DEEPAK AGARWAL</td>
-        <td>2</td>
-        <td>CLUSTER</td>
-        <td>EC2 M Mid Sem</td>
-        <td>24A</td>
-        <td>GND</td>
-        <td><input type="checkbox"></td>
-      </tr>
+function searchCandidate() {
+  const input = document.getElementById("cid").value.trim().toUpperCase();
+  const resultDiv = document.getElementById("result");
 
-      <tr>
-        <td>2024AC05940</td>
-        <td>NIKHILA</td>
-        <td>3</td>
-        <td>CLUSTER</td>
-        <td>EC2 M Mid Sem</td>
-        <td>24A</td>
-        <td>GND</td>
-        <td><input type="checkbox"></td>
-      </tr>
+  if (input === "") {
+    resultDiv.innerHTML = "<p>Please enter Candidate ID</p>";
+    return;
+  }
 
-      <tr>
-        <td>2024AA05155</td>
-        <td>ASHWANI KUMAR JAISWAL</td>
-        <td>4</td>
-        <td>CLUSTER</td>
-        <td>EC2 M Mid Sem</td>
-        <td>24A</td>
-        <td>GND</td>
-        <td><input type="checkbox"></td>
-      </tr>
-
-      <tr>
-        <td>2025AA05491</td>
-        <td>DEEPAK S</td>
-        <td>5</td>
-        <td>CLUSTER</td>
-        <td>EC2 M Mid Sem</td>
-        <td>24A</td>
-        <td>GND</td>
-        <td><input type="checkbox"></td>
-      </tr>
-
-      <tr>
-        <td>2024DC04063</td>
-        <td>ILANGO S</td>
-        <td>6</td>
-        <td>CLUSTER</td>
-        <td>EC2 M Mid Sem</td>
-        <td>24A</td>
-        <td>GND</td>
-        <td><input type="checkbox"></td>
-      </tr>
-
-      <tr>
-        <td>2025DA04265</td>
-        <td>CHANDAN KUMAR</td>
-        <td>7</td>
-        <td>CLUSTER</td>
-        <td>EC2 M Mid Sem</td>
-        <td>24A</td>
-        <td>GND</td>
-        <td><input type="checkbox"></td>
-      </tr>
-    </tbody>
-  </table>
+  if (data[input]) {
+    const c = data[input];
+    resultDiv.innerHTML = `
+      <strong>Name:</strong> ${c.name}<br>
+      <strong>System No:</strong> ${c.system}<br>
+       <strong>Program:</strong> ${c.program}<br>
+       <strong>Subprogram:</strong> ${c.subprogram}<br>
+      <strong>Lab No:</strong> ${c.lab}<br>
+      <strong>Floor:</strong> ${c.floor}
+    `;
+  } else {
+    resultDiv.innerHTML = "<p style='color:red;'>Candidate ID not found</p>";
+  }
+}
+</script>
 
 </body>
 </html>
+
+
