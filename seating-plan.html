@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Candidate Seating Plan</title>
-<input type="text" id="cid" placeholder="Enter Candidate ID">
-<button onclick="check()">Search</button>
-<div id="result"></div>
 
 <style>
 * {
@@ -160,7 +157,7 @@ const data = {
   "2024AC05073": { name: "KARTIKEYA DUBEY", system: "270", lab: "228", floor: "2nd" },
 };
 
-function check() {
+function searchCandidate() {
   const input = document.getElementById("cid").value.trim().toUpperCase();
   const resultDiv = document.getElementById("result");
 
@@ -185,6 +182,7 @@ function check() {
 
 </body>
 </html>
+
 
 
 
