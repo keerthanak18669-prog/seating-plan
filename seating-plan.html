@@ -164,28 +164,26 @@ const data = {
   "2024AC05073": { name: "KARTIKEYA DUBEY", system: "270", lab: "228", floor: "2nd" },
 };
 
-function searchCandidate() {
-  const input = document.getElementById("cid").value.trim().toUpperCase();
-  const result = document.getElementById("result");
+function check() {
+ const id = document.getElementById("cid").value.trim().toUpperCase();
+  const res = document.getElementById("result");
 
-  if (!input) {
-    result.innerHTML = "<span style='color:red;'>Please enter Candidate ID</span>";
-    return;
-  }
-
-  if (data[input]) {
-    result.innerHTML = `
-      <strong>Lab:</strong> ${data[input].lab}<br>
-      <strong>System:</strong> ${data[input].system}
+  if (data[id]) {
+    res.innerHTML = `
+      <b>Name:</b> ${data[id].name}<br>
+      <b>System No:</b> ${data[id].system}<br>
+      <b>Lab:</b> ${data[id].lab}<br>
+      <b>Floor:</b> ${data[id].floor}
     `;
   } else {
-    result.innerHTML = "<span style='color:red;'>No record found</span>";
+    res.innerHTML = "<span style='color:red;'>❌ Candidate ID not found</span>";
   }
 }
 </script>
 
 </body>
 </html>
+
 
 
 
