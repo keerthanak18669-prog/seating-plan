@@ -5,24 +5,17 @@
 <title>Candidate Seating Plan</title>
 
 <style>
- * {
+* {
   box-sizing: border-box;
 }
 
 /* Logo */
 .logo {
-  width: 280px;
+  width: 240px;
   margin-bottom: 20px;
 }
 
-hr {
-  border: none;
-  height: 1px;
-  background: #ddd;
-  margin: 14px 0;
-}
-
-  body {
+body {
   margin: 0;
   padding: 0;
   min-height: 92vh;
@@ -39,7 +32,7 @@ hr {
   align-items: center;
 }
 
-   .card {
+.card {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(8px);
   width: 90vw;
@@ -51,64 +44,89 @@ hr {
   transform: translateY(-40px);
 }
 
-
-
-  h2 {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-
-  input {
-    width: 100%;
-    padding: 18px;
-    font-size: 18px;
-    margin-bottom: 18px;
-    border-radius: 10px;
-    border: 2px solid #bbb;
-  }
- 
- button:active {
-  transform: scale(0.97);
+h1 {
+  font-size: 20px;
 }
- 
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+}
+
 .hint {
   font-size: 13px;
   color: #666;
-  margin-top: -10px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
-  #result {
-    margin-top: 20px;
-    font-size: 18px;
-    line-height: 1.8;
-  }
- .footer {
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+#result {
+  margin-top: 18px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.footer {
   font-size: 12px;
   color: #777;
   margin-top: 18px;
 }
-
 </style>
 </head>
 
 <body>
 
 <div class="card">
-<img src="images/logo.png" class="logo">
-<h1> MVJ College Of Engineering (BITS-Examination) </h1>
+  <img src="images/logo.png" class="logo">
+
+  <h1>MVJ College Of Engineering (BITS-Examination)</h1>
   <h2>Candidate Seating Plan</h2>
 
   <input type="text" id="cid" placeholder="Enter Candidate ID">
-   <p class="hint">Enter Candidate ID (Case insensitive)</p>
+  <p class="hint">Enter Candidate ID (Case insensitive)</p>
+
   <button onclick="check()">Search</button>
 
   <div id="result"></div>
+
+  <p class="footer">Powered by Keerthana and team</p>
 </div>
 
-
+<script>
 function check() {
- const id = document.getElementById("cid").value.trim().toUpperCase();
+  const id = document.getElementById("cid").value.trim().toUpperCase();
+  const data = {
+    "2025CA08029": {
+      name: "VAIBHAV BHASKAR",
+      system: "16",
+      lab: "24A",
+      floor: "GND"
+    }
+  };
+
   const res = document.getElementById("result");
 
   if (data[id]) {
@@ -119,35 +137,10 @@ function check() {
       <b>Floor:</b> ${data[id].floor}
     `;
   } else {
-    res.innerHTML = "<span style='color:red;'>❌ Candidate ID not found</span>";
+    res.innerHTML = "❌ Candidate ID not found";
   }
 }
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
