@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Candidate Lab Attendance</title>
+<title>Candidate Lab Entry portal</title>
 
 <style>
 * {
@@ -102,6 +102,23 @@ footer {
   padding: 6px;
   color: #777;
 }
+  /* Mobile table fix */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  min-width: 900px; /* forces proper column width */
+}
+
+@media (max-width: 768px) {
+  th, td {
+    font-size: 13px;
+    padding: 6px;
+  }
+}
+
 </style>
 </head>
 
@@ -109,14 +126,16 @@ footer {
 
 <header>
   <h1>MVJ College of Engineering (BITS-Examination)</h1>
-  <p>Candidate Lab Attendance Portal</p>
+  <p>Candidate Lab Entry Portal</p>
 </header>
 
 <div class="main">
   <div class="card">
-    <h2>Lab Attendance – 24A (GND Floor)</h2>
+    <h2> Date - 03-1-25 Shift- FN </h2>
 
-    <table id="candidateTable">
+    <div class="table-wrapper">
+  <table id="candidateTable">
+
       <thead>
         <tr>
           <th>Candidate ID</th>
@@ -133,6 +152,8 @@ footer {
         <!-- Data will come here -->
       </tbody>
     </table>
+ 
+</div>
 
     <center>
       <button onclick="saveAttendance()">Save Attendance</button>
@@ -485,3 +506,4 @@ function saveAttendance() {
 
 </body>
 </html>
+
