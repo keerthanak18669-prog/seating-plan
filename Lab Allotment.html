@@ -130,40 +130,14 @@ footer {
 </footer>
 
 <script>
-// Sample candidate data
 const candidates = [
-  GND	{"id":"2024AD05055","name":"ALOK KUMAR OJHA","system":"1","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AC05834","name":"DEEPAK AGARWAL","system":"2","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AC05940","name":"NIKHILA","system":"3","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AA05155","name":"Ashwani Kumar Jaiswal","system":"4","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2025AA05491","name":"DEEPAK S","system":"5","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024DC04063","name":"ILANGO S","system":"6","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2025DA04265","name":"CHANDAN KUMAR","system":"7","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AC05922","name":"NISHIT UPAL","system":"8","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024CC21022","name":"HARSHAVARTHINI T","system":"9","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AD05493","name":"SWAGATIKA SAHOO","system":"10","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AC05512","name":"MONIKA","system":"11","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2025AB05104","name":"SHILPI","system":"12","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AC05442","name":"AVINASH CHANDRA","system":"13","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"202520CA032","name":"FREDRICK V","system":"14","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2025CA93045","name":"SHIVARAJ KUMAR POOJAR","system":"15","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2025CA08029","name":"VAIBHAV BHASKAR","system":"16","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AA05351","name":"Bodhit Kumar Gupta","system":"17","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AC05978","name":"CHELLA VENKATA GOPIKRISHNA","system":"18","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AC05401","name":"M PRAVEENKUMAR","system":"19","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AC05157","name":"KARTHIKEYAN R","system":"20","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AC05511","name":"DEBANJAN CHAUDHURI","system":"21","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AA05960","name":"Nagendra VSPR Kunuturi","system":"22","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AC05463","name":"SANDEEP NEGI","system":"23","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AC05623","name":"HRITHIKA L","system":"24","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AA05868","name":"Murikinati R C Reddy","system":"25","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2022AC05092","name":"TADI YASWANTH SRI RAM","system":"26","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AA05769","name":"KIRANJEET KAUR ISHAR","system":"27","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AA05466","name":"Akash Verma","system":"28","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AA05867","name":"Durgesh Kumar Yadav","system":"29","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-GND	{"id":"2024AA05484","name":"PERI A S RAJA SRIRAM","system":"30","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-
+  {"id":"2024AD05055","name":"ALOK KUMAR OJHA","system":"1","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
+  {"id":"2024AC05834","name":"DEEPAK AGARWAL","system":"2","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
+  {"id":"2024AC05940","name":"NIKHILA","system":"3","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
+  {"id":"2024AA05155","name":"ASHWANI KUMAR JAISWAL","system":"4","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
+  {"id":"2025AA05491","name":"DEEPAK S","system":"5","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"}
 ];
+</script>
 
 // Populate table
 const tbody = document.querySelector("#candidateTable tbody");
@@ -198,4 +172,5 @@ function saveAttendance() {
 
 </body>
 </html>
+
 
