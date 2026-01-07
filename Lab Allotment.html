@@ -1,98 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Lab Allotment - Candidate Verification</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candidate Seating Plan</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f6f8;
-      padding: 20px;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  font-family: Book Antiqua, Helvetica, sans-serif;
+}
 
-    h2 {
-      text-align: center;
-      margin-bottom: 5px;
-    }
+/* BODY */
+body {
+  margin: 0;
+  background: #f1f3f6;
+  min-height: 93vh;
+  display: flex;
+  flex-direction: column;
+}
 
-    h4 {
-      text-align: center;
-      margin-top: 0;
-      color: #555;
-    }
+/* HEADER */
+header {
+  background: #1f3c88;
+  color: white;
+  text-align: center;
+  padding: 12px 10px;
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: white;
-      margin-top: 20px;
-    }
+header h1 {
+  font-size: 18px;
+  margin: 0;
+}
 
-    th, td {
-      border: 1px solid #333;
-      padding: 8px;
-      text-align: center;
-      font-size: 14px;
-    }
+header p {
+  font-size: 13px;
+  margin: 4px 0 0;
+  opacity: 0.9;
+}
 
-    th {
-      background-color: #2c3e50;
-      color: white;
-    }
+/* MAIN AREA */
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 15px;
+}
 
-    tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
+/* CARD */
+.card {
+  background: white;
+  width: 100%;
+  max-width: 600px;
+  padding: 22px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  text-align: center;
+}
 
-    input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-    }
-  </style>
+/* TITLE */
+.card h2 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+/* INPUT */
+input {
+  width: 100%;
+  padding: 11px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  margin-bottom: 6px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #1f3c88;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  background: #1f3c88;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+button:hover {
+  background: #162f6a;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table, th, td {
+  border: 1px solid #bbb;
+}
+
+th, td {
+  padding: 8px 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+th {
+  background-color: #1f3c88;
+  color: white;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+  padding: 2px 0;   
+  background: #f1f3f6;
+}
+
+#result p {
+  margin: 0;
+}
+</style>
 </head>
 
 <body>
 
-  <h2>Bangalore – MVJ College of Engineering</h2>
-  <h4>3rd Jan 2026 | FN Session | Lab Allotment</h4>
+<header>
+  <h1>MVJ College of Engineering (BITS-Examination)</h1>
+  <p>Candidate Seating Plan Portal</p>
+</header>
 
-  <script>
+<div class="main">
+  <div class="card">
+    <h2>Search Candidate Details</h2>
+    <p> Date-03-01-2025 Shift-FN </p>
+    <input type="text" id="cid" placeholder="Enter Candidate ID">
+    <button onclick="searchCandidate()">Search</button>
+
+    <div id="result"></div>
+  </div>
+</div>
+
+<footer>
+  Powered by Keerthana and Team
+</footer>
+
+<script>
 const data = {
-"2024AD05055": { name: "ALOK KUMAR OJHA", system: "1", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AC05834": { name: "DEEPAK AGARWAL", system: "2", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AC05940": { name: "NIKHILA", system: "3", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AA05155": { name: "Ashwani Kumar Jaiswal", system: "4", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2025AA05491": { name: "DEEPAK S", system: "5", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024DC04063": { name: "ILANGO S", system: "6", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2025DA04265": { name: "CHANDAN KUMAR", system: "7", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AC05922": { name: "NISHIT UPAL", system: "8", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024CC21022": { name: "HARSHAVARTHINI T", system: "9", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AD05493": { name: "SWAGATIKA SAHOO", system: "10", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AC05512": { name: "MONIKA", system: "11", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2025AB05104": { name: "SHILPI", system: "12", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AC05442": { name: "AVINASH CHANDRA", system: "13", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"202520CA032": { name: "FREDRICK V", system: "14", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2025CA93045": { name: "SHIVARAJ KUMAR POOJAR", system: "15", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2025CA08029": { name: "VAIBHAV BHASKAR", system: "16", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AA05351": { name: "Bodhit Kumar Gupta", system: "17", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AC05978": { name: "CHELLA VENKATA GOPIKRISHNA", system: "18", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AC05401": { name: "M PRAVEENKUMAR", system: "19", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AC05157": { name: "KARTHIKEYAN R", system: "20", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AC05511": { name: "DEBANJAN CHAUDHURI", system: "21", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AA05960": { name: "Nagendra VSPR Kunuturi", system: "22", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AC05463": { name: "SANDEEP NEGI", system: "23", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AC05623": { name: "HRITHIKA L", system: "24", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AA05868": { name: "Murikinati R C Reddy", system: "25", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2022AC05092": { name: "TADI YASWANTH SRI RAM", system: "26", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AA05769": { name: "KIRANJEET KAUR ISHAR", system: "27", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AA05466": { name: "Akash Verma", system: "28", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AA05867": { name: "Durgesh Kumar Yadav", system: "29", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-"2024AA05484": { name: "PERI A S RAJA SRIRAM", system: "30", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
-										
-
+  "2024AD05055": { name: "ALOK KUMAR OJHA", system: "1", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+  "2024AC05834": { name: "DEEPAK AGARWAL", system: "2", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+  "2024AC05940": { name: "NIKHILA", system: "3", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+  "2024AA05155": { name: "Ashwani Kumar Jaiswal", system: "4", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" },
+  "2025AA05491": { name: "DEEPAK S", system: "5", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "GND" }
+  // add more candidates here...
 };
 
 function searchCandidate() {
@@ -107,12 +179,24 @@ function searchCandidate() {
   if (data[input]) {
     const c = data[input];
     resultDiv.innerHTML = `
-      <strong>Name:</strong> ${c.name}<br>
-      <strong>System No:</strong> ${c.system}<br>
-       <strong>Program:</strong> ${c.program}<br>
-       <strong>Subprogram:</strong> ${c.subprogram}<br>
-      <strong>Lab No:</strong> ${c.lab}<br>
-      <strong>Floor:</strong> ${c.floor}
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>System No</th>
+          <th>Program</th>
+          <th>Subprogram</th>
+          <th>Lab No</th>
+          <th>Floor</th>
+        </tr>
+        <tr>
+          <td>${c.name}</td>
+          <td>${c.system}</td>
+          <td>${c.program}</td>
+          <td>${c.subprogram}</td>
+          <td>${c.lab}</td>
+          <td>${c.floor}</td>
+        </tr>
+      </table>
     `;
   } else {
     resultDiv.innerHTML = "<p style='color:red;'>Candidate ID not found</p>";
@@ -122,5 +206,3 @@ function searchCandidate() {
 
 </body>
 </html>
-
-
