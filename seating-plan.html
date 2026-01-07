@@ -2,122 +2,118 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>System & Lab Allotment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candidate Seating Plan</title>
 
 <style>
-/* RESET */
 * {
   box-sizing: border-box;
-  font-family: "Book Antique", Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* BODY */
 body {
   margin: 0;
-  min-height: 92vh;
-  background: #f4f6f9;
-  display: flex;
-  flex-direction: column;
+  background: #f1f3f6;
+  min-height: 100vh;
 }
 
 /* HEADER */
 header {
-  background: #1e3a8a;
+  background: #1f3c88;
   color: white;
   text-align: center;
-  padding: 20px 15px;
+  padding: 12px 10px;
 }
 
 header h1 {
+  font-size: 18px;
   margin: 0;
-  font-size: 22px;
 }
 
 header p {
-  margin-top: 6px;
-  font-size: 14px;
+  font-size: 13px;
+  margin: 4px 0 0;
   opacity: 0.9;
 }
 
-/* MAIN */
-main {
-  flex: 1;
+/* MAIN AREA */
+.main {
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 20px;
+  align-items: flex-start;
+  padding: 30px 15px;
 }
 
 /* CARD */
 .card {
   background: white;
   width: 100%;
-  max-width: 420px;
-  padding: 28px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  text-align: center;
+  max-width: 380px;
+  padding: 22px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
+/* TITLE */
 .card h2 {
-  margin-bottom: 18px;
-  font-size: 18px;
+  text-align: center;
+  font-size: 17px;
+  margin-bottom: 16px;
 }
 
 /* INPUT */
 input {
   width: 100%;
-  padding: 12px;
-  font-size: 15px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  margin-bottom: 8px;
-  outline: none;
+  padding: 11px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  margin-bottom: 6px;
 }
 
 input:focus {
-  border-color: #1e3a8a;
+  outline: none;
+  border-color: #1f3c88;
 }
 
 /* HINT */
 .hint {
-  font-size: 12px;
+  font-size: 11px;
   color: #666;
-  margin-bottom: 15px;
+  text-align: center;
+  margin-bottom: 14px;
 }
 
 /* BUTTON */
 button {
   width: 100%;
   padding: 10px;
-  font-size: 15px;
+  font-size: 14px;
+  border-radius: 6px;
   border: none;
-  border-radius: 8px;
-  background: #1e3a8a;
+  background: #1f3c88;
   color: white;
   cursor: pointer;
 }
 
 button:hover {
-  background: #16307a;
-}
-
-button:active {
-  transform: scale(0.97);
+  background: #162f6a;
 }
 
 /* RESULT */
 #result {
-  margin-top: 18px;
-  font-size: 15px;
+  margin-top: 16px;
+  font-size: 14px;
   line-height: 1.6;
+  text-align: center;
 }
 
 /* FOOTER */
 footer {
   text-align: center;
+  font-size: 12px;
   padding: 12px;
-  font-size: 13px;
   color: #777;
 }
 </style>
@@ -127,39 +123,39 @@ footer {
 
 <header>
   <h1>MVJ College of Engineering</h1>
-  <p>System & Lab Allotment Portal</p>
+  <p>Candidate Seating Plan</p>
 </header>
 
-<main>
+<div class="main">
   <div class="card">
     <h2>Search Candidate Details</h2>
 
     <input type="text" id="cid" placeholder="Enter Candidate ID">
 
+    <div class="hint">Case insensitive (small / CAPS both allowed)</div>
 
-    <button onclick="check()">Search</button>
+    <button onclick="searchCandidate()">Search</button>
 
     <div id="result"></div>
   </div>
-</main>
+</div>
 
 <footer>
   Powered by Keerthana and Team
 </footer>
 
 <script>
-/* SAMPLE DATA */
 const data = {
- "2024AC05073": { name: "KARTIKEYA DUBEY", system: "270", lab: "228", floor: "2nd" },
-
+  "MVJ001": { lab: "Lab 1", system: "System 12" },
+  "MVJ002": { lab: "Lab 2", system: "System 05" },
+  "MVJ003": { lab: "Lab 3", system: "System 18" }
 };
 
-/* SEARCH FUNCTION */
-function check() {
+function searchCandidate() {
   const input = document.getElementById("cid").value.trim().toUpperCase();
   const result = document.getElementById("result");
 
-  if (input === "") {
+  if (!input) {
     result.innerHTML = "<span style='color:red;'>Please enter Candidate ID</span>";
     return;
   }
@@ -177,5 +173,3 @@ function check() {
 
 </body>
 </html>
-
-
