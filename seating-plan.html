@@ -64,6 +64,7 @@ header p {
   padding: 22px;
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  text-align: center;
 }
 
 /* TITLE */
@@ -157,18 +158,24 @@ const data = {
 };
 
 function check() {
- const id = document.getElementById("cid").value.trim().toUpperCase();
-  const res = document.getElementById("result");
+  const input = document.getElementById("cid").value.trim().toUpperCase();
+  const resultDiv = document.getElementById("result");
 
-  if (data[id]) {
-    res.innerHTML = `
-      <b>Name:</b> ${data[id].name}<br>
-      <b>System No:</b> ${data[id].system}<br>
-      <b>Lab:</b> ${data[id].lab}<br>
-      <b>Floor:</b> ${data[id].floor}
+  if (input === "") {
+    resultDiv.innerHTML = "<p>Please enter Candidate ID</p>";
+    return;
+  }
+
+  if (data[input]) {
+    const c = data[input];
+    resultDiv.innerHTML = `
+      <strong>Name:</strong> ${c.name}<br>
+      <strong>System No:</strong> ${c.system}<br>
+      <strong>Lab No:</strong> ${c.lab}<br>
+      <strong>Floor:</strong> ${c.floor}
     `;
   } else {
-    res.innerHTML = "<span style='color:red;'>❌ Candidate ID not found</span>";
+    resultDiv.innerHTML = "<p style='color:red;'>Candidate ID not found</p>";
   }
 }
 </script>
