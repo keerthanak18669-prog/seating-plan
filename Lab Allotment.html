@@ -4,104 +4,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Candidate Lab Attendance</title>
+
 <style>
 * { box-sizing: border-box; font-family: Book Antiqua, Helvetica, sans-serif; }
 
-/* BODY */
 body {
   margin: 0;
   background: #f1f3f6;
-  min-height: 93vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* HEADER */
 header {
   background: #1f3c88;
   color: white;
   text-align: center;
-  padding: 12px 10px;
+  padding: 12px;
 }
 
-header h1 { font-size: 18px; margin: 0; }
-header p { font-size: 13px; margin: 4px 0 0; opacity: 0.9; }
-
-/* MAIN AREA */
 .main {
   flex: 1;
   display: flex;
   justify-content: center;
-  padding: 30px 15px;
+  padding: 20px;
 }
 
-/* CARD */
 .card {
   background: white;
   width: 100%;
   max-width: 900px;
-  padding: 22px;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-/* TABLE */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 th, td {
   border: 1px solid #bbb;
-  padding: 8px 10px;
+  padding: 8px;
   text-align: center;
-  font-size: 14px;
 }
 
 th {
-  background-color: #1f3c88;
+  background: #1f3c88;
   color: white;
-}
-
-input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
 }
 
 button {
   margin-top: 15px;
   padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 6px;
-  border: none;
   background: #1f3c88;
   color: white;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
 }
-
-button:hover { background: #162f6a; }
 
 footer {
   text-align: center;
   font-size: 12px;
-  color: #777;
-  padding: 2px 0;   
-  background: #f1f3f6;
+  padding: 6px;
+  color: #666;
 }
 </style>
 </head>
+
 <body>
 
 <header>
-  <h1>MVJ College of Engineering (BITS-Examination)</h1>
+  <h3>MVJ College of Engineering (BITS-Examination)</h3>
   <p>Candidate Lab Attendance Portal</p>
 </header>
 
 <div class="main">
   <div class="card">
-    <h2>Lab Attendance - 24A (GND Floor)</h2>
+    <h3>Lab Attendance – 24A (GND Floor)</h3>
 
     <table id="candidateTable">
       <thead>
@@ -116,57 +99,27 @@ footer {
           <th>Present</th>
         </tr>
       </thead>
-      <tbody>
-        <!-- Rows will be added dynamically -->
-      </tbody>
+      <tbody></tbody>
     </table>
 
     <button onclick="saveAttendance()">Save Attendance</button>
   </div>
 </div>
 
-<footer>
-  Powered by Keerthana and Team
-</footer>
+<footer>Powered by Keerthana and Team</footer>
 
 <script>
 const candidates = [
   {"id":"2024AD05055","name":"ALOK KUMAR OJHA","system":"1","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AC05834","name":"DEEPAK AGARWAL","system":"2","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AC05940","name":"NIKHILA","system":"3","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AA05155","name":"Ashwani Kumar Jaiswal","system":"4","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2025AA05491","name":"DEEPAK S","system":"5","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024DC04063","name":"ILANGO S","system":"6","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2025DA04265","name":"CHANDAN KUMAR","system":"7","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AC05922","name":"NISHIT UPAL","system":"8","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024CC21022","name":"HARSHAVARTHINI T","system":"9","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AD05493","name":"SWAGATIKA SAHOO","system":"10","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AC05512","name":"MONIKA","system":"11","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2025AB05104","name":"SHILPI","system":"12","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AC05442","name":"AVINASH CHANDRA","system":"13","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"202520CA032","name":"FREDRICK V","system":"14","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2025CA93045","name":"SHIVARAJ KUMAR POOJAR","system":"15","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2025CA08029","name":"VAIBHAV BHASKAR","system":"16","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AA05351","name":"Bodhit Kumar Gupta","system":"17","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AC05978","name":"CHELLA VENKATA GOPIKRISHNA","system":"18","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AC05401","name":"M PRAVEENKUMAR","system":"19","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AC05157","name":"KARTHIKEYAN R","system":"20","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AC05511","name":"DEBANJAN CHAUDHURI","system":"21","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AA05960","name":"Nagendra VSPR Kunuturi","system":"22","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AC05463","name":"SANDEEP NEGI","system":"23","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AC05623","name":"HRITHIKA L","system":"24","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AA05868","name":"Murikinati R C Reddy","system":"25","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2022AC05092","name":"TADI YASWANTH SRI RAM","system":"26","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AA05769","name":"KIRANJEET KAUR ISHAR","system":"27","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AA05466","name":"Akash Verma","system":"28","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AA05867","name":"Durgesh Kumar Yadav","system":"29","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-{"id":"2024AA05484","name":"PERI A S RAJA SRIRAM","system":"30","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
-
+  {"id":"2024AC05834","name":"DEEPAK AGARWAL","system":"2","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
+  {"id":"2024AC05940","name":"NIKHILA","system":"3","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
+  {"id":"2024AA05155","name":"Ashwani Kumar Jaiswal","system":"4","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"},
+  {"id":"2024AA05484","name":"PERI A S RAJA SRIRAM","system":"30","program":"CLUSTER","subprogram":"EC2 M Mid Sem","lab":"24A","floor":"GND"}
 ];
-</script>
 
 // Populate table
 const tbody = document.querySelector("#candidateTable tbody");
+
 candidates.forEach(c => {
   const tr = document.createElement("tr");
   tr.innerHTML = `
@@ -177,27 +130,27 @@ candidates.forEach(c => {
     <td>${c.subprogram}</td>
     <td>${c.lab}</td>
     <td>${c.floor}</td>
-    <td><input type="checkbox" class="present"></td>
+    <td><input type="checkbox"></td>
   `;
   tbody.appendChild(tr);
 });
 
-// Save attendance (just logs the present candidates for now)
+// Save attendance
 function saveAttendance() {
   const rows = document.querySelectorAll("#candidateTable tbody tr");
-  const attendance = [];
+  const data = [];
+
   rows.forEach(row => {
-    const id = row.cells[0].innerText;
-    const present = row.querySelector(".present").checked;
-    attendance.push({ id, present });
+    data.push({
+      id: row.cells[0].innerText,
+      present: row.cells[7].querySelector("input").checked
+    });
   });
-  console.log("Attendance:", attendance);
-  alert("Attendance saved! Check console for details.");
+
+  console.log(data);
+  alert("Attendance saved. Check console.");
 }
 </script>
 
 </body>
 </html>
-
-
-
