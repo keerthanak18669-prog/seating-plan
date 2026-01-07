@@ -2,147 +2,179 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Candidate Seating Plan</title>
+<title>System & Lab Allotment</title>
 
 <style>
+/* RESET */
 * {
   box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* Logo */
-.logo {
-  width: 240px;
-  margin-bottom: 20px;
-}
-
+/* BODY */
 body {
   margin: 0;
-  padding: 0;
-  min-height: 92vh;
-
-  background-image: url("images/bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  font-family: "Book Antiqua", Georgia, serif;
-
+  min-height: 100vh;
+  background: #f4f6f9;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 
-.card {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(8px);
-  width: 100vw;
-  max-width: 380px;
-  padding: 28px 22px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+/* HEADER */
+header {
+  background: #1e3a8a;
+  color: white;
   text-align: center;
-  transform: translateY(-40px);
+  padding: 20px 15px;
 }
 
-h1 {
+header h1 {
+  margin: 0;
   font-size: 22px;
 }
 
-h2 {
-  font-size: 18px;
-  margin-bottom: 16px;
-}
-
-input {
-  width: 100%;
-  padding: 14px;
-  font-size: 16px;
-  margin-bottom: 8px;
-  border-radius: 8px;
-  border: 1px solid #bbb;
-}
-
-.hint {
+header p {
+  margin-top: 6px;
   font-size: 14px;
-  color: #666;
-  margin-bottom: 14px;
+  opacity: 0.9;
 }
 
-button {
+/* MAIN */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  width: 100%;
+  max-width: 420px;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.card h2 {
+  margin-bottom: 18px;
+  font-size: 18px;
+}
+
+/* INPUT */
+input {
   width: 100%;
   padding: 12px;
   font-size: 15px;
-  background: #2e7d32;
-  color: white;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 8px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #1e3a8a;
+}
+
+/* HINT */
+.hint {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
   border: none;
   border-radius: 8px;
+  background: #1e3a8a;
+  color: white;
   cursor: pointer;
+}
+
+button:hover {
+  background: #16307a;
 }
 
 button:active {
   transform: scale(0.97);
 }
 
+/* RESULT */
 #result {
   margin-top: 18px;
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
-.footer {
-  font-size: 12px;
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
   color: #777;
-  margin-top: 18px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
-  <img src="images/logo.png" class="logo">
+<header>
+  <h1>MVJ College of Engineering</h1>
+  <p>Candiadte Seating Plan</p>
+</header>
 
-  <h1>MVJ College Of Engineering (BITS-Examination)</h1>
-  <h2>Candidate Seating Plan</h2>
+<main>
+  <div class="card">
+    <h2>Search Candidate Details</h2>
 
-  <input type="text" id="cid" placeholder="Enter Candidate ID">
+    <input type="text" id="cid" placeholder="Enter Candidate ID">
 
-  <button onclick="check()">Search</button>
+    <div class="hint">Case insensitive (small / caps both work)</div>
 
-  <div id="result"></div>
+    <button onclick="check()">Search</button>
 
-  <p class="footer">Powered by Keerthana and team</p>
-</div>
+    <div id="result"></div>
+  </div>
+</main>
+
+<footer>
+  Powered by Keerthana and Team
+</footer>
 
 <script>
+/* SAMPLE DATA */
+const data = {
+ "2024AC05073": { name: "KARTIKEYA DUBEY", system: "270", lab: "228", floor: "2nd" },
+
+};
+
+/* SEARCH FUNCTION */
 function check() {
-  const id = document.getElementById("cid").value.trim().toUpperCase();
-  const data = {
-    "2025CA08029": {
-      name: "VAIBHAV BHASKAR",
-      system: "16",
-      lab: "24A",
-      floor: "GND"
-    }
-  };
+  const input = document.getElementById("cid").value.trim().toUpperCase();
+  const result = document.getElementById("result");
 
-  const res = document.getElementById("result");
+  if (input === "") {
+    result.innerHTML = "<span style='color:red;'>Please enter Candidate ID</span>";
+    return;
+  }
 
-  if (data[id]) {
-    res.innerHTML = `
-      <b>Name:</b> ${data[id].name}<br>
-      <b>System No:</b> ${data[id].system}<br>
-      <b>Lab:</b> ${data[id].lab}<br>
-      <b>Floor:</b> ${data[id].floor}
+  if (data[input]) {
+    result.innerHTML = `
+      <strong>Lab:</strong> ${data[input].lab}<br>
+      <strong>System:</strong> ${data[input].system}
     `;
   } else {
-    res.innerHTML = "❌ Candidate ID not found";
+    result.innerHTML = "<span style='color:red;'>No record found</span>";
   }
 }
 </script>
 
 </body>
 </html>
-
-
-
