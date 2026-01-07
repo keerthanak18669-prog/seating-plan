@@ -7,6 +7,17 @@
 
 <style>
 * {
+  .logo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.logo-wrap img {
+  width: 80px;        /* perfect size */
+  height: auto;
+}
+
   box-sizing: border-box;
   font-family: Book Antiqua, Helvetica, sans-serif;
 }
@@ -123,12 +134,16 @@ footer {
 <body>
 
 <header>
-  <h1>MVJ College of Engineering(BITS-Examination</h1>
+  <h1>MVJ College of Engineering(BITS-Examination)</h1>
   <p>Candidate Seating Plan Portal</p>
 </header>
 
 <div class="main">
   <div class="card">
+<div class="logo-wrap">
+  <img src="images/logo.png" alt="Logo">
+</div>
+
     <h2>Search Candidate Details</h2>
     <h2> Shift-FN  Date-03-01-2025</h2>
     <input type="text" id="cid" placeholder="Enter Candidate ID">
@@ -171,6 +186,7 @@ function searchCandidate() {
 
 </body>
 </html>
+
 
 
 
