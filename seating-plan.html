@@ -15,7 +15,7 @@
 body {
   margin: 0;
   background: #f1f3f6;
-  min-height: 100vh;
+  min-height: 92vh;
 }
 
 /* HEADER */
@@ -115,6 +115,7 @@ footer {
   font-size: 12px;
   padding: 12px;
   color: #777;
+  padding: 6px 0;
 }
 </style>
 </head>
@@ -132,7 +133,6 @@ footer {
 
     <input type="text" id="cid" placeholder="Enter Candidate ID">
 
-    <div class="hint">Case insensitive (small / CAPS both allowed)</div>
 
     <button onclick="searchCandidate()">Search</button>
 
@@ -146,9 +146,7 @@ footer {
 
 <script>
 const data = {
-  "MVJ001": { lab: "Lab 1", system: "System 12" },
-  "MVJ002": { lab: "Lab 2", system: "System 05" },
-  "MVJ003": { lab: "Lab 3", system: "System 18" }
+  "2024AC05073": { name: "KARTIKEYA DUBEY", system: "270", lab: "228", floor: "2nd" },
 };
 
 function searchCandidate() {
@@ -173,3 +171,4 @@ function searchCandidate() {
 
 </body>
 </html>
+
