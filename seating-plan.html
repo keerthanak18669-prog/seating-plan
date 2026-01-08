@@ -440,7 +440,8 @@ function searchCandidate() {
   const cidInput = document.getElementById('cid');
   const resultDiv = document.getElementById('result');
   const cardDiv = document.querySelector('.card');
-  document.getElementById("cid").value.trim().toUpperCase();
+  const cid = cidInput.value.trim().toUpperCase();
+
   if (data[cid]) {
     const info = data[cid];
     resultDiv.innerHTML = `
@@ -463,5 +464,6 @@ function searchCandidate() {
 
 </body>
 </html>
+
 
 
