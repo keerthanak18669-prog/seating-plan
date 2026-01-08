@@ -494,8 +494,11 @@ function searchCandidate() {
        <strong>Program:</strong> ${c.program}<br>
        <strong>Subprogram:</strong> ${c.subprogram}<br>
       <strong>Lab No:</strong> ${c.lab}<br>
-      <strong>Floor:</strong> ${c.floor}
-	  <p> All the best for your exam </p>
+      <strong>Floor:</strong> ${c.floor}<br>
+	  
+	  <p style="color: green; font-weight: 600;">
+      🌟 All the best for your exam!
+    </p>
     `;
   } else {
     resultDiv.innerHTML = `
@@ -513,6 +516,7 @@ document.getElementById("errorMsg").classList.add("shake");
 
 </body>
 </html>
+
 
 
 
