@@ -440,31 +440,23 @@ const data = {
 /* SEARCH FUNCTION */
 function searchCandidate() {
   const input = document.getElementById("cid");
-  const cid = input.value.trim().toUpperCase();
   const result = document.getElementById("result");
 
-  // reset animation
+  // convert input to uppercase (small letters will work)
+  const cid = input.value.trim().toUpperCase();
+
+  // reset animation every click
   result.classList.remove("shake");
-  void result.offsetWidth; // force reflow
-  result.innerHTML = "";
+  void result.offsetWidth;
 
   if (cid === "") {
-    result.innerHTML = `
-      <span style="color:red;font-weight:bold;">
-        ⚠️ Please enter Candidate ID
-      </span>
-    `;
+    result.innerHTML = "😕 Please enter Candidate ID";
     result.classList.add("shake");
     return;
   }
 
   if (!data[cid]) {
-    result.innerHTML = `
-      <span style="color:red;font-weight:bold;">
-        😕 Candidate ID not found<br>
-        Please check and try again
-      </span>
-    `;
+    result.innerHTML = "😔 Candidate ID not found";
     result.classList.add("shake");
     return;
   }
@@ -472,20 +464,21 @@ function searchCandidate() {
   const c = data[cid];
 
   result.innerHTML = `
+    <strong>🤓 Candidate Found 👍</strong><br><br>
     <b>Name:</b> ${c.name}<br>
     <b>System No:</b> ${c.system}<br>
     <b>Program:</b> ${c.program}<br>
     <b>Exam:</b> ${c.subprogram}<br>
     <b>Lab:</b> ${c.lab}<br>
     <b>Floor:</b> ${c.floor}<br><br>
-    <span style="color:#1f3c88;font-weight:bold;">
-      😎 All the best for the exam!🍀
-    </span>
+    😊👍 All the best for the exam!
   `;
 }
 </script>
 
+
 </body>
 </html>
+
 
 
