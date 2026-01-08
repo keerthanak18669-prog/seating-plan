@@ -484,13 +484,19 @@ function searchCandidate() {
       <strong>Floor:</strong> ${c.floor}
     `;
   } else {
-    resultDiv.innerHTML = "<p style='color:red;'>Candidate ID not found</p>";
+    resultDiv.innerHTML = `
+  <p style="color:red; font-size:15px;">
+    😢 Oops! Candidate ID not found
+  </p>
+`;
+
   }
 }
 </script>
 
 </body>
 </html>
+
 
 
 
