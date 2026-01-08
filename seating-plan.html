@@ -495,11 +495,12 @@ function searchCandidate() {
        <strong>Subprogram:</strong> ${c.subprogram}<br>
       <strong>Lab No:</strong> ${c.lab}<br>
       <strong>Floor:</strong> ${c.floor}
+	  <p> All the best for your exam </p>
     `;
   } else {
     resultDiv.innerHTML = `
   <p id="errorMsg" style="color:red; font-size:15px;">
-    😟 Oops Candidate ID not found!!
+    😟 Oops! Candidate ID not found
   </p>
 `;
 
@@ -512,6 +513,7 @@ document.getElementById("errorMsg").classList.add("shake");
 
 </body>
 </html>
+
 
 
 
