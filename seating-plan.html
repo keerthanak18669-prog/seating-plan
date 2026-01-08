@@ -487,10 +487,12 @@ function launchConfetti() {
 
 /* SEARCH FUNCTION */
 function searchCandidate() {
-  const cid = document.getElementById("cid").value.trim();
+  const cid = document.getElementById("cid").value.trim().toUpperCase();
   const result = document.getElementById("result");
 
+  // 🔁 Reset animation properly
   result.classList.remove("shake");
+  void result.offsetWidth; // force reflow
   result.innerHTML = "";
 
   if (!data[cid]) {
@@ -500,7 +502,7 @@ function searchCandidate() {
         Please check and try again
       </span>
     `;
-    result.classList.add("shake");
+    result.classList.add("shake"); // will shake EVERY time now
     return;
   }
 
@@ -522,7 +524,27 @@ function searchCandidate() {
 
   launchConfetti();
 }
+
+
+  const c = data[cid];
+  const floor = c.floor.replace(/\s+/g, "");
+
+  result.innerHTML = `
+    <b>Name:</b> ${c.name}<br>
+    <b>System No:</b> ${c.system}<br>
+    <b>Program:</b> ${c.program}<br>
+    <b>Exam:</b> ${c.subprogram}<br>
+    <b>Lab:</b> ${c.lab}<br>
+    <b>Floor:</b> ${floor}<br><br>
+    <span style="color:#1f3c88;font-weight:bold;">
+      😊 All the best for the exam!🍀
+    </span>
+  `;
+
+  launchConfetti();
+}
 </script>
 
 </body>
 </html>
+
