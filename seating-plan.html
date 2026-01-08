@@ -134,9 +134,9 @@ footer {
 </footer>
 
 <script>
-/* SAMPLE DATA */
+// SAMPLE DATA
 const data = {
- "2024AD05055": { name: "ALOK KUMAR OJHA", system: "1", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "Gnd" },
+"2024AD05055": { name: "ALOK KUMAR OJHA", system: "1", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "Gnd" },
 "2024AC05834": { name: "DEEPAK AGARWAL", system: "2", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "Gnd" },
 "2024AC05940": { name: "NIKHILA", system: "3", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "Gnd" },
 "2024AA05155": { name: "Ashwani Kumar Jaiswal", system: "4", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "Gnd" },
@@ -434,53 +434,33 @@ const data = {
 "2024CT05018": { name: "BAIDYANATHSUBUDHI", system: "296", program: "Cognizant", subprogram: "EC2 M Mid Sem", lab: "243", floor: "2 nd " },
 "2022MT70176": { name: "GNYANA RANJAN PRADHAN", system: "297", program: "Mindtree", subprogram: "EC2 M Mid Sem", lab: "243", floor: "2 nd " },
 
-  }
 };
 
-/* SEARCH FUNCTION */
 function searchCandidate() {
-  const input = document.getElementById("cid");
-  const result = document.getElementById("result");
+  const cidInput = document.getElementById('cid');
+  const resultDiv = document.getElementById('result');
+  const cardDiv = document.querySelector('.card');
+  const cid = cidInput.value.trim();
 
-  // convert input to uppercase (small letters will work)
-  const cid = input.value.trim().toUpperCase();
-
-  // reset animation every click
-  result.classList.remove("shake");
-  void result.offsetWidth;
-
-  if (cid === "") {
-    result.innerHTML = "Please enter Candidate ID";
-    result.classList.add("shake");
-    return;
+  if (data[cid]) {
+    const info = data[cid];
+    resultDiv.innerHTML = `
+      <strong>Name:</strong> ${info.name} <br>
+      <strong>System:</strong> ${info.system} <br>
+      <strong>Program:</strong> ${info.program} <br>
+      <strong>Subprogram:</strong> ${info.subprogram} <br>
+      <strong>Lab:</strong> ${info.lab} <br>
+      <strong>Floor:</strong> ${info.floor} <br>
+      <span style="color: green;">😎 All the best for the exam!🍀</span>
+    `;
+    cardDiv.classList.remove('shake'); // Remove shake if previously added
+  } else {
+    resultDiv.innerHTML = `<span style="color: red;">Candidate ID not found 😕<br>Check the ID and try again.</span>`;
+    cardDiv.classList.add('shake'); // Add shake animation
+    setTimeout(() => cardDiv.classList.remove('shake'), 500); // Remove shake after animation
   }
-
-  if (!data[cid]) {
-    result.innerHTML = "😕Candidate ID not found";
-    result.classList.add("shake");
-    return;
-  }
-
-  const c = data[cid];
-
-  result.innerHTML = `
-    
-    <b>Name:</b> ${c.name}<br>
-    <b>System No:</b> ${c.system}<br>
-    <b>Program:</b> ${c.program}<br>
-    <b>Exam:</b> ${c.subprogram}<br>
-    <b>Lab:</b> ${c.lab}<br>
-    <b>Floor:</b> ${c.floor}<br><br>
-    <strong>😊 All the best for the exam!🍀 </strong><br><br>
-    
-  `;
 }
 </script>
 
-
 </body>
 </html>
-
-
-
-
