@@ -6,12 +6,12 @@
 <title>Candidate Seating Plan</title>
 
 <style>
-	.confetti {
+/* CONFETTI */
+.confetti {
   position: fixed;
   top: 0;
   width: 8px;
   height: 8px;
-  background-color: red;
   animation: fall 3s linear forwards;
   z-index: 9999;
 }
@@ -27,7 +27,8 @@
   }
 }
 
-	@keyframes shake {
+/* SHAKE */
+@keyframes shake {
   0% { transform: translateX(0); }
   20% { transform: translateX(-5px); }
   40% { transform: translateX(5px); }
@@ -40,32 +41,19 @@
   animation: shake 0.4s;
 }
 
+/* GENERAL */
 * {
   box-sizing: border-box;
   font-family: Book Antiqua, Helvetica, sans-serif;
 }
 
-.logo-wrap {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 12px;
-}
-
-.logo-wrap img {
-  width: 100px;
-  height: auto;
-}
-
-/* BODY */
 body {
   margin: 0;
   background: #f1f3f6;
   min-height: 90vh;
-
   display: flex;
   flex-direction: column;
 }
-
 
 /* HEADER */
 header {
@@ -83,20 +71,16 @@ header h1 {
 header p {
   font-size: 13px;
   margin: 4px 0 0;
-  opacity: 0.9;
 }
 
-/* MAIN AREA */
+/* MAIN */
 .main {
-  flex: 1; /* THIS pushes footer down */
+  flex: 1;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   padding: 30px 15px;
 }
 
-
-/* CARD */
 .card {
   background: white;
   width: 100%;
@@ -107,29 +91,25 @@ header p {
   text-align: center;
 }
 
-/* TITLE */
-.card h2 {
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 16px;
+.logo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
 }
 
-/* INPUT */
+.logo-wrap img {
+  width: 100px;
+}
+
 input {
   width: 100%;
   padding: 11px;
   font-size: 14px;
   border-radius: 6px;
   border: 1px solid #bbb;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
-input:focus {
-  outline: none;
-  border-color: #1f3c88;
-}
-
-/* BUTTON */
 button {
   width: 100%;
   padding: 10px;
@@ -145,12 +125,10 @@ button:hover {
   background: #162f6a;
 }
 
-/* RESULT */
 #result {
   margin-top: 16px;
   font-size: 14px;
   line-height: 1.6;
-  text-align: center;
 }
 
 /* FOOTER */
@@ -158,31 +136,29 @@ footer {
   text-align: center;
   font-size: 12px;
   color: #777;
-  padding: 0px 0;   
-  background: #f1f3f6;
+  padding: 8px 0;
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>MVJ College of Engineering(BITS-Examination)</h1>
+  <h1>MVJ College of Engineering (BITS-Examination)</h1>
   <p>Candidate Seating Plan Portal</p>
 </header>
 
 <div class="main">
   <div class="card">
-<div class="logo-wrap">
-  <img src="images/logo.png" alt="Logo">
-</div>
+
+    <div class="logo-wrap">
+      <img src="images/logo.png" alt="Logo">
+    </div>
 
     <h2>Search Candidate Details</h2>
-    <p> Date-03-01-2025 Shift-FN </p>
+    <p>Date: 03-01-2025 | Shift: FN</p>
+
     <input type="text" id="cid" placeholder="Enter Candidate ID">
-
-
     <button onclick="searchCandidate()">Search</button>
 
     <div id="result"></div>
@@ -194,8 +170,9 @@ footer {
 </footer>
 
 <script>
+/* SAMPLE DATA (your full data continues as is) */
 const data = {
-"2024AD05055": { name: "ALOK KUMAR OJHA", system: "1", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "Gnd" },
+  "2024AD05055": { name: "ALOK KUMAR OJHA", system: "1", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "Gnd" },
 "2024AC05834": { name: "DEEPAK AGARWAL", system: "2", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "Gnd" },
 "2024AC05940": { name: "NIKHILA", system: "3", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "Gnd" },
 "2024AA05155": { name: "Ashwani Kumar Jaiswal", system: "4", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "24A", floor: "Gnd" },
@@ -493,119 +470,59 @@ const data = {
 "2024CT05018": { name: "BAIDYANATHSUBUDHI", system: "296", program: "Cognizant", subprogram: "EC2 M Mid Sem", lab: "243", floor: "2 nd " },
 "2022MT70176": { name: "GNYANA RANJAN PRADHAN", system: "297", program: "Mindtree", subprogram: "EC2 M Mid Sem", lab: "243", floor: "2 nd " },
 
-	
-									
-
 };
-	function launchConfetti() {
-  for (let i = 0; i < 80; i++) {
+
+/* CONFETTI FUNCTION */
+function launchConfetti() {
+  for (let i = 0; i < 40; i++) {
     const confetti = document.createElement("div");
     confetti.className = "confetti";
-
-    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.left = Math.random() * window.innerWidth + "px";
     confetti.style.backgroundColor =
-      ["#1f3c88", "#28a745", "#ffc107", "#dc3545"][Math.floor(Math.random() * 4)];
-    confetti.style.animationDuration = Math.random() * 2 + 2 + "s";
-
+      ["#ff4d4d", "#ffd633", "#4dff4d", "#4dd2ff"][Math.floor(Math.random() * 4)];
     document.body.appendChild(confetti);
-
-    setTimeout(() => {
-      confetti.remove();
-    }, 3000);
+    setTimeout(() => confetti.remove(), 3000);
   }
 }
 
-
+/* SEARCH FUNCTION */
 function searchCandidate() {
-  const input = document.getElementById("cid").value.trim().toUpperCase();
-  const resultDiv = document.getElementById("result");
+  const cid = document.getElementById("cid").value.trim();
+  const result = document.getElementById("result");
 
-  if (input === "") {
-    resultDiv.innerHTML = "<p>Please enter Candidate ID</p>";
+  result.classList.remove("shake");
+  result.innerHTML = "";
+
+  if (!data[cid]) {
+    result.innerHTML = `
+      <span style="color:red;font-weight:bold;">
+        😔 Candidate ID not found<br>
+        Please check and try again
+      </span>
+    `;
+    result.classList.add("shake");
     return;
   }
 
-  if (data[input]) {
-    const c = data[input];
-    resultDiv.innerHTML = `
-      <strong>Name:</strong> ${c.name}<br>
-      <strong>System No:</strong> ${c.system}<br>
-       <strong>Program:</strong> ${c.program}<br>
-       <strong>Subprogram:</strong> ${c.subprogram}<br>
-      <strong>Lab No:</strong> ${c.lab}<br>
-      <strong>Floor:</strong> ${c.floor}<br>
-	  
-	  <p style="color: green; font-weight: 600;">
-     😊 All the best for your exam!
-    </p>
-    `;
-  } else {
-    resultDiv.innerHTML = `
-  <p id="errorMsg" style="color:red; font-size:15px;">
-    😟 Oops! Candidate ID not found
-  </p>
-`;
-launchConfetti(); // 🎉 CONFETTI HERE
+  const c = data[cid];
+  const floor = c.floor.replace(/\s+/g, "");
 
-document.getElementById("errorMsg").classList.add("shake");
+  result.innerHTML = `
+    <strong style="color:green;">🎉 Candidate Found</strong><br><br>
+    <b>Name:</b> ${c.name}<br>
+    <b>System No:</b> ${c.system}<br>
+    <b>Program:</b> ${c.program}<br>
+    <b>Exam:</b> ${c.subprogram}<br>
+    <b>Lab:</b> ${c.lab}<br>
+    <b>Floor:</b> ${floor}<br><br>
+    <span style="color:#1f3c88;font-weight:bold;">
+      ✅ All the best for the exam! 🍀
+    </span>
+  `;
 
-
-  }
+  launchConfetti();
 }
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
