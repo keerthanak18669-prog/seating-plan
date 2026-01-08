@@ -450,13 +450,13 @@ function searchCandidate() {
   void result.offsetWidth;
 
   if (cid === "") {
-    result.innerHTML = "😕 Please enter Candidate ID";
+    result.innerHTML = "Please enter Candidate ID";
     result.classList.add("shake");
     return;
   }
 
   if (!data[cid]) {
-    result.innerHTML = "😔 Candidate ID not found";
+    result.innerHTML = "😕Candidate ID not found";
     result.classList.add("shake");
     return;
   }
@@ -464,14 +464,15 @@ function searchCandidate() {
   const c = data[cid];
 
   result.innerHTML = `
-    <strong>🤓 Candidate Found 👍</strong><br><br>
+    
     <b>Name:</b> ${c.name}<br>
     <b>System No:</b> ${c.system}<br>
     <b>Program:</b> ${c.program}<br>
     <b>Exam:</b> ${c.subprogram}<br>
     <b>Lab:</b> ${c.lab}<br>
     <b>Floor:</b> ${c.floor}<br><br>
-    😊👍 All the best for the exam!
+    <strong>😊 All the best for the exam!🍀 </strong><br><br>
+    
   `;
 }
 </script>
@@ -479,6 +480,7 @@ function searchCandidate() {
 
 </body>
 </html>
+
 
 
 
