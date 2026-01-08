@@ -6,6 +6,27 @@
 <title>Candidate Seating Plan</title>
 
 <style>
+	.confetti {
+  position: fixed;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  animation: fall 3s linear forwards;
+  z-index: 9999;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
 	@keyframes shake {
   0% { transform: translateX(0); }
   20% { transform: translateX(-5px); }
@@ -476,6 +497,24 @@ const data = {
 									
 
 };
+	function launchConfetti() {
+  for (let i = 0; i < 80; i++) {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.backgroundColor =
+      ["#1f3c88", "#28a745", "#ffc107", "#dc3545"][Math.floor(Math.random() * 4)];
+    confetti.style.animationDuration = Math.random() * 2 + 2 + "s";
+
+    document.body.appendChild(confetti);
+
+    setTimeout(() => {
+      confetti.remove();
+    }, 3000);
+  }
+}
+
 
 function searchCandidate() {
   const input = document.getElementById("cid").value.trim().toUpperCase();
@@ -506,6 +545,7 @@ function searchCandidate() {
     😟 Oops! Candidate ID not found
   </p>
 `;
+launchConfetti(); // 🎉 CONFETTI HERE
 
 document.getElementById("errorMsg").classList.add("shake");
 
@@ -516,6 +556,7 @@ document.getElementById("errorMsg").classList.add("shake");
 
 </body>
 </html>
+
 
 
 
