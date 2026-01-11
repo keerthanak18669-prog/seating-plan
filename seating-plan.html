@@ -2,189 +2,154 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Candidate Seating Plan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam Seat Allocation</title>
 
 <style>
   body {
     margin: 0;
-    font-family: Inter, "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(180deg, #eef5ff 0%, #ffffff 60%);
-    color: #1f2937;  
-  min-height: 100vh;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eaf2ff, #fdfefe);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1f2937;
   }
 
-  .container {
-    max-width: 720px;
-    margin: 80px auto;
-    padding: 0 20px;
+  .app {
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 28px 24px 30px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.08);
   }
 
-  /* Header */
-  .header {
+  .title {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
   }
 
-  .header h1 {
-    font-size: 28px;
+  .title h1 {
+    font-size: 22px;
     font-weight: 700;
     color: #1e40af;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
-  .header p {
-    font-size: 15px;
-    color: #475569;
-  }
-
-  /* Search box */
-  .search-box {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    margin-bottom: 40px;
-  }
-
-  .search-box input {
-    flex: 1;
-    max-width: 360px;
-    padding: 14px 16px;
-    font-size: 15px;
-    border-radius: 10px;
-    border: 1px solid #c7d2fe;
-    outline: none;
-    background: #ffffff;
-  }
-
-  .search-box input:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-  }
-
-  .search-box button {
-    padding: 14px 22px;
-    font-size: 15px;
-    font-weight: 600;
-    background: #2563eb;
-    color: #ffffff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-
-  .search-box button:hover {
-    background: #1d4ed8;
-  }
-
-  /* Result card */
-  .result-card {
-    background: #ffffff;
-    border-radius: 14px;
-    padding: 24px 28px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-    max-width: 640px;
-    margin: auto;
-  }
-
-  .student-name {
-    font-size: 18px;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 18px;
-  }
-
-  .details-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px 32px;
-    font-size: 15px;
-  }
-
-  .label {
+  .title p {
+    font-size: 14px;
     color: #64748b;
   }
 
-  .value {
+  .search {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .search input {
+    flex: 1;
+    padding: 14px 14px;
+    font-size: 14px;
+    border-radius: 12px;
+    border: 1px solid #c7d2fe;
+    outline: none;
+  }
+
+  .search input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+  }
+
+  .search button {
+    padding: 14px 18px;
+    font-size: 14px;
     font-weight: 600;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+
+  .search button:hover {
+    background: #1d4ed8;
+  }
+
+  .result {
+    margin-top: 10px;
+  }
+
+  .card {
+    background: #f8fafc;
+    border-radius: 14px;
+    padding: 18px 16px;
+  }
+
+  .name {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .row span {
+    color: #64748b;
+  }
+
+  .row strong {
     color: #020617;
   }
 
-  .highlight {
-    margin-top: 20px;
-    padding: 14px 16px;
-    background: #f0fdf4;
-    border-left: 5px solid #22c55e;
-    border-radius: 8px;
-    font-weight: 600;
+  .note {
+    margin-top: 14px;
+    padding: 12px;
+    background: #ecfdf5;
+    border-radius: 10px;
+    font-size: 14px;
     color: #166534;
+    font-weight: 600;
   }
 
-  .not-found {
+  .error {
     background: #fff1f2;
-    border-left: 5px solid #ef4444;
-    padding: 16px;
-    border-radius: 10px;
+    padding: 14px;
+    border-radius: 12px;
     color: #7f1d1d;
     font-weight: 500;
-    max-width: 640px;
-    margin: auto;
+    text-align: center;
   }
-  @media (max-width: 600px) {
-  .container {
-    margin: 40px auto;
-  }
-
- .header h1 {
-  letter-spacing: -0.5px;
-
-  }
-
-  .header p {
-    font-size: 14px;
-  }
-
-  .search-box {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .search-box input {
-    max-width: 100%;
-  }
-
-  .search-box button {
-    width: 100%;
-  }
-
-  .result-card,
-  .not-found {
-    margin-top: 20px;
-  }
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="app">
 
-  <div class="header">
-    <h1>MVJ Collage of Engineering (Bits Examination)</h1>
-    <p>Enter your Candidate ID to view your exam Allocation</p>
+  <div class="title">
+    <h1>Exam Seat Allocation</h1>
+    <p>Enter your Website ID to view your seat</p>
   </div>
 
-  <div class="search-box">
+  <div class="search">
     <input
       type="text"
       id="websiteId"
-      placeholder="Enter Website ID (eg: 2024DA04386)"
-      oninput="this.value=this.value.trim()"
+      placeholder="Eg: 2024DA04386"
+      oninput="this.value=this.value.toUpperCase()"
     >
     <button onclick="getDetails()">Search</button>
   </div>
 
-  <div id="output"></div>
+  <div class="result" id="output"></div>
 
 </div>
 
@@ -198,14 +163,13 @@
   };
 
   function getDetails() {
-    const id = document.getElementById("websiteId").value.trim().toUpperCase();
-
+    const id = document.getElementById("websiteId").value.trim();
     const out = document.getElementById("output");
 
     if (!seatingData[id]) {
       out.innerHTML = `
-        <div class="not-found">
-          ❌ No details found. Please check your Candidate ID.
+        <div class="error">
+          ❌ No seating details found
         </div>
       `;
       return;
@@ -214,35 +178,23 @@
     const d = seatingData[id];
 
     out.innerHTML = `
-      <div class="result-card">
-        <div class="student-name">
-          👋 Hello, ${d.name}
-        </div>
+      <div class="card">
+        <div class="name">👋 ${d.name}</div>
 
-        <div class="details-grid">
-          <div class="label">System No</div><div class="value">${d.system}</div>
-          <div class="label">Program</div><div class="value">${d.program}</div>
-          <div class="label">Sub Program</div><div class="value">${d.subprogram}</div>
-          <div class="label">Lab</div><div class="value">Lab ${d.lab}</div>
-          <div class="label">Floor</div><div class="value">${d.floor} Floor</div>
-        </div>
+        <div class="row"><span>System No</span><strong>${d.system}</strong></div>
+        <div class="row"><span>Program</span><strong>${d.program}</strong></div>
+        <div class="row"><span>Sub Program</span><strong>${d.subprogram}</strong></div>
+        <div class="row"><span>Lab</span><strong>${d.lab}</strong></div>
+        <div class="row"><span>Floor</span><strong>${d.floor} Floor</strong></div>
 
-        <div class="highlight">
-          📍 Please report to <strong>${d.floor} Floor, Lab ${d.lab}</strong>
-          and check <strong>System No ${d.system}</strong>.
+        <div class="note">
+          📍 Report to <strong>${d.floor} Floor, Lab ${d.lab}</strong> and check
+          <strong>System ${d.system}</strong>
         </div>
       </div>
     `;
   }
-
-  document.getElementById("websiteId").addEventListener("keypress", function(e) {
-    if (e.key === "Enter") getDetails();
-  });
 </script>
 
 </body>
 </html>
-
-
-
-
