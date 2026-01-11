@@ -2,133 +2,70 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Exam Seating Arrangement</title>
+<title>Exam Seating Details</title>
 
 <style>
   body {
     font-family: Arial, Helvetica, sans-serif;
     background: #ffffff;
     color: #000;
-    margin: 32px;
+    margin: 40px;
   }
 
   h1 {
     font-size: 20px;
-    margin-bottom: 6px;
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-size: 14px;
     font-weight: bold;
   }
 
-  .meta {
-    font-size: 13px;
-    margin-bottom: 24px;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-  }
-
-  thead th {
-    border-bottom: 2px solid #000;
+  input {
+    font-size: 14px;
     padding: 6px;
-    text-align: left;
+    width: 260px;
+    margin-right: 10px;
   }
 
-  tbody td {
-    border-bottom: 1px solid #000;
-    padding: 6px;
-    vertical-align: top;
+  button {
+    font-size: 14px;
+    padding: 6px 14px;
+    cursor: pointer;
   }
 
-  .row-label {
+  .result {
+    margin-top: 30px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .result-title {
     font-weight: bold;
-    width: 60px;
+    margin-bottom: 10px;
+    text-decoration: underline;
   }
 
-  .seat {
-    white-space: nowrap;
-  }
-
-  .seat span {
-    display: block;
-  }
-
-  .seat-number {
-    font-weight: bold;
-  }
-
-  .empty {
-    color: #555;
-  }
-
-  .blocked {
+  .not-found {
     color: #000;
     font-style: italic;
-  }
-
-  /* Print perfection */
-  @media print {
-    body {
-      margin: 0;
-    }
   }
 </style>
 </head>
 
 <body>
 
-<h1>Exam Seating Arrangement</h1>
-<div class="meta">
-  Hall: A Block – Room 203<br>
-  Date: 12 Mar 2026 | Session: FN
-</div>
+<h1>Exam Seating Information</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Row</th>
-      <th>Seat 1</th>
-      <th>Seat 2</th>
-      <th>Seat 3</th>
-      <th>Seat 4</th>
-    </tr>
-  </thead>
+<label for="websiteId">Enter Website ID:</label><br><br>
+<input type="text" id="websiteId" placeholder="Eg: WEB20260045">
+<button onclick="getDetails()">Get Details</button>
 
-  <tbody>
-    <tr>
-      <td class="row-label">A</td>
-      <td class="seat">
-        <span class="seat-number">A1</span>
-        <span>Keerthana K</span>
-        <span>21CS045</span>
-      </td>
-      <td class="seat empty">EMPTY</td>
-      <td class="seat">
-        <span class="seat-number">A3</span>
-        <span>Rahul S</span>
-        <span>21CS052</span>
-      </td>
-      <td class="seat blocked">BLOCKED</td>
-    </tr>
+<div class="result" id="result"></div>
 
-    <tr>
-      <td class="row-label">B</td>
-      <td class="seat">
-        <span class="seat-number">B1</span>
-        <span>Ananya M</span>
-        <span>21CS061</span>
-      </td>
-      <td class="seat empty">EMPTY</td>
-      <td class="seat">
-        <span class="seat-number">B3</span>
-        <span>Vikram R</span>
-        <span>21CS074</span>
-      </td>
-      <td class="seat empty">EMPTY</td>
-    </tr>
-  </tbody>
-</table>
-
-</body>
-</html>
+<script>
+  const seatingData = {
+    "WEB20260045": {
+      name: "Keerthana K",
+      block: "Admi
