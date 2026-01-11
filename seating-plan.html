@@ -2,134 +2,111 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Exam Seating Information</title>
+<title>Exam Seating Info</title>
 
 <style>
   body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: #f4f8ff; /* soft positive background */
+    margin: 0;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(180deg, #f0f7ff, #ffffff);
     color: #1f2937;
-    margin: 40px;
   }
 
-  h1 {
-    font-size: 22px;
-    color: #1d4ed8; /* calm blue */
-    margin-bottom: 24px;
+  .container {
+    max-width: 720px;
+    margin: 80px auto;
+    padding: 0 20px;
   }
 
-  label {
-    font-size: 14px;
-    font-weight: 600;
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
   }
 
-  input {
-    font-size: 14px;
-    padding: 8px;
-    width: 280px;
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e40af;
+    margin-bottom: 8px;
+  }
+
+  .header p {
+    font-size: 15px;
+    color: #475569;
+  }
+
+  /* Search box */
+  .search-box {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .search-box input {
+    flex: 1;
+    max-width: 360px;
+    padding: 14px 16px;
+    font-size: 15px;
+    border-radius: 10px;
     border: 1px solid #c7d2fe;
-    border-radius: 4px;
     outline: none;
+    background: #ffffff;
   }
 
-  input:focus {
+  .search-box input:focus {
     border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
   }
 
-  button {
-    font-size: 14px;
-    padding: 8px 16px;
-    margin-left: 8px;
+  .search-box button {
+    padding: 14px 22px;
+    font-size: 15px;
+    font-weight: 600;
     background: #2563eb;
     color: #ffffff;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
   }
 
-  button:hover {
+  .search-box button:hover {
     background: #1d4ed8;
   }
 
+  /* Result section */
   .result {
-    margin-top: 32px;
-    font-size: 15px;
-    line-height: 1.9;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 24px 28px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
   }
 
-  .result-title {
+  .result h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: #0f172a;
+  }
+
+  .info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 14px;
+    column-gap: 30px;
+    font-size: 15px;
+  }
+
+  .label {
+    color: #64748b;
+  }
+
+  .value {
     font-weight: 600;
-    color: #065f46;
-    margin-bottom: 12px;
+    color: #020617;
   }
 
   .highlight {
-    color: #047857;
-    font-weight: 600;
-  }
-
-  .not-found {
-    color: #b91c1c;
-    font-weight: 500;
-  }
-</style>
-</head>
-
-<body>
-
-<h1>Exam Seating Information</h1>
-
-<label for="websiteId">Website ID</label><br><br>
-<input type="text" id="websiteId" placeholder="Enter your Website ID">
-<button onclick="getDetails()">View Details</button>
-
-<div class="result" id="result"></div>
-
-<script>
-  const seatingData = {
-    "WEB20260045": {
-      name: "Keerthana K",
-      block: "Admin Block",
-      floor: "1st Floor",
-      lab: "Computer Lab – II",
-      room: "Room No. 13",
-      seat: "Seat No. 32"
-    },
-    "WEB20260052": {
-      name: "Rahul S",
-      block: "Admin Block",
-      floor: "1st Floor",
-      lab: "Computer Lab – I",
-      room: "Room No. 11",
-      seat: "Seat No. 18"
-    }
-  };
-
-  function getDetails() {
-    const id = document.getElementById("websiteId").value.trim();
-    const resultDiv = document.getElementById("result");
-
-    if (!seatingData[id]) {
-      resultDiv.innerHTML = `
-        <div class="not-found">
-          Seating details not found. Please check your Website ID.
-        </div>`;
-      return;
-    }
-
-    const d = seatingData[id];
-
-    resultDiv.innerHTML = `
-      <div class="result-title">Your Seating Details</div>
-      Name : <span class="highlight">${d.name}</span><br>
-      Block : ${d.block}<br>
-      Floor : ${d.floor}<br>
-      Lab : ${d.lab}<br>
-      Room Number : <span class="highlight">${d.room}</span><br>
-      Seat Number : <span class="highlight">${d.seat}</span>
-    `;
-  }
-</script>
-
-</body>
-</html>
+    grid-column: span 2;
+    margin-top: 18px;
+    padding: 14px;
