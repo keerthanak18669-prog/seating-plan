@@ -1,189 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>Exam Seating Arrangement</title>
 
 <style>
   body {
-    font-family: Inter, Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: #ffffff;
-    margin: 24px;
-    color: #111827;
+    color: #000;
+    margin: 32px;
   }
 
-  /* Header */
-  .header {
-    margin-bottom: 20px;
-  }
-
-  .header h1 {
-    font-size: 22px;
-    margin: 0;
-    font-weight: 600;
+  h1 {
+    font-size: 20px;
+    margin-bottom: 6px;
+    font-weight: bold;
   }
 
   .meta {
     font-size: 13px;
-    color: #6b7280;
-    margin-top: 4px;
-  }
-
-  /* Seating grid */
-  .seating-wrapper {
-    overflow-x: auto;
+    margin-bottom: 24px;
   }
 
   table {
-    border-collapse: collapse;
     width: 100%;
-    min-width: 800px;
+    border-collapse: collapse;
+    font-size: 13px;
   }
 
-  th, td {
-    border: 1px solid #e5e7eb;
-    padding: 8px;
+  thead th {
+    border-bottom: 2px solid #000;
+    padding: 6px;
+    text-align: left;
+  }
+
+  tbody td {
+    border-bottom: 1px solid #000;
+    padding: 6px;
     vertical-align: top;
   }
 
-  th {
-    background: #f9fafb;
-    font-size: 13px;
-    font-weight: 600;
-    text-align: center;
+  .row-label {
+    font-weight: bold;
+    width: 60px;
   }
 
-  /* Seat cell */
   .seat {
-    height: 90px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+    white-space: nowrap;
+  }
+
+  .seat span {
+    display: block;
   }
 
   .seat-number {
-    font-size: 11px;
-    color: #6b7280;
+    font-weight: bold;
   }
 
-  .student-name {
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  .roll-number {
-    font-size: 12px;
-    color: #374151;
-  }
-
-  /* Seat states */
   .empty {
-    background: #f3f4f6;
+    color: #555;
   }
 
   .blocked {
-    background: #fef2f2;
+    color: #000;
+    font-style: italic;
   }
 
-  td:hover {
-    background: #f9fafb;
-    cursor: pointer;
+  /* Print perfection */
+  @media print {
+    body {
+      margin: 0;
+    }
   }
-
-  /* Legend */
-  .legend {
-    margin-top: 16px;
-    font-size: 13px;
-    display: flex;
-    gap: 20px;
-  }
-
-  .legend span {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .box {
-    width: 14px;
-    height: 14px;
-    border: 1px solid #9ca3af;
-  }
-
-  .box.empty { background: #f3f4f6; }
-  .box.blocked { background: #fef2f2; }
 </style>
 </head>
 
 <body>
 
-  <div class="header">
-    <h1>Exam Seating Arrangement</h1>
-    <div class="meta">
-      Hall: A Block – Room 203 | Date: 12 Mar 2026 | Session: FN
-    </div>
-  </div>
+<h1>Exam Seating Arrangement</h1>
+<div class="meta">
+  Hall: A Block – Room 203<br>
+  Date: 12 Mar 2026 | Session: FN
+</div>
 
-  <div class="seating-wrapper">
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>A</th>
-          <td>
-            <div class="seat">
-              <div class="seat-number">A1</div>
-              <div class="student-name">Keerthana K</div>
-              <div class="roll-number">21CS045</div>
-            </div>
-          </td>
-          <td class="empty"></td>
-          <td>
-            <div class="seat">
-              <div class="seat-number">A3</div>
-              <div class="student-name">Rahul S</div>
-              <div class="roll-number">21CS052</div>
-            </div>
-          </td>
-          <td class="blocked"></td>
-        </tr>
+<table>
+  <thead>
+    <tr>
+      <th>Row</th>
+      <th>Seat 1</th>
+      <th>Seat 2</th>
+      <th>Seat 3</th>
+      <th>Seat 4</th>
+    </tr>
+  </thead>
 
-        <tr>
-          <th>B</th>
-          <td>
-            <div class="seat">
-              <div class="seat-number">B1</div>
-              <div class="student-name">Ananya M</div>
-              <div class="roll-number">21CS061</div>
-            </div>
-          </td>
-          <td class="empty"></td>
-          <td>
-            <div class="seat">
-              <div class="seat-number">B3</div>
-              <div class="student-name">Vikram R</div>
-              <div class="roll-number">21CS074</div>
-            </div>
-          </td>
-          <td class="empty"></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <tbody>
+    <tr>
+      <td class="row-label">A</td>
+      <td class="seat">
+        <span class="seat-number">A1</span>
+        <span>Keerthana K</span>
+        <span>21CS045</span>
+      </td>
+      <td class="seat empty">EMPTY</td>
+      <td class="seat">
+        <span class="seat-number">A3</span>
+        <span>Rahul S</span>
+        <span>21CS052</span>
+      </td>
+      <td class="seat blocked">BLOCKED</td>
+    </tr>
 
-  <div class="legend">
-    <span><div class="box"></div> Assigned</span>
-    <span><div class="box empty"></div> Empty</span>
-    <span><div class="box blocked"></div> Blocked</span>
-  </div>
+    <tr>
+      <td class="row-label">B</td>
+      <td class="seat">
+        <span class="seat-number">B1</span>
+        <span>Ananya M</span>
+        <span>21CS061</span>
+      </td>
+      <td class="seat empty">EMPTY</td>
+      <td class="seat">
+        <span class="seat-number">B3</span>
+        <span>Vikram R</span>
+        <span>21CS074</span>
+      </td>
+      <td class="seat empty">EMPTY</td>
+    </tr>
+  </tbody>
+</table>
 
 </body>
 </html>
