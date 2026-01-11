@@ -125,6 +125,47 @@
     color: #7f1d1d;
     font-weight: 500;
   }
+  .result-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 24px 28px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  max-width: 640px;
+}
+
+.student-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 18px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 32px;
+  font-size: 15px;
+}
+
+.label {
+  color: #64748b;
+}
+
+.value {
+  font-weight: 600;
+  color: #020617;
+}
+
+.highlight {
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: #f0fdf4;
+  border-left: 5px solid #22c55e;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #166534;
+}
+
 </style>
 </head>
 
@@ -148,22 +189,12 @@
 
 <script>
   const seatingData = {
-    "WEB20260045": {
-      name: "Keerthana K",
-      block: "Admin Block",
-      floor: "1st Floor",
-      lab: "Computer Lab – II",
-      room: "Room No. 13",
-      seat: "Seat No. 32"
-    },
-    "WEB20260052": {
-      name: "Rahul S",
-      block: "Admin Block",
-      floor: "1st Floor",
-      lab: "Computer Lab – I",
-      room: "Room No. 11",
-      seat: "Seat No. 18"
-    }
+   "2024CC21082": { name: "SANJANA M SHENDGE", system: "238", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "227", floor: "2nd " },
+"2025CA08015": { name: "MORTI ANJALI MAHESH", system: "239", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "227", floor: "2nd " },
+"2024DC04073": { name: "SINGUPURAM ATULYA", system: "240", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "227", floor: "2nd " },
+"2025AA05643": { name: "ADITYA KAINTHOLA", system: "241", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "227", floor: "2nd " },
+"2024DA04386": { name: "N G R POOJITH VENKAT REDDY", system: "242", program: "CLUSTER", subprogram: "EC2 M Mid Sem", lab: "227", floor: "2nd " },
+
   };
 
   function getDetails() {
@@ -181,24 +212,37 @@
     const d = seatingData[id];
 
     out.innerHTML = `
-      <div class="result">
-        <h2>Hello, ${d.name} 👋</h2>
+     <div class="result-card">
+  <div class="student-name">
+    👋 Hello, N G R POOJITH VENKAT REDDY
+  </div>
 
-        <div class="info">
-          <div class="label">Block</div><div class="value">${d.block}</div>
-          <div class="label">Floor</div><div class="value">${d.floor}</div>
-          <div class="label">Lab</div><div class="value">${d.lab}</div>
-          <div class="label">Room Number</div><div class="value">${d.room}</div>
-          <div class="label">Seat Number</div><div class="value">${d.seat}</div>
+  <div class="details-grid">
+    <div class="label">System No</div>
+    <div class="value">242</div>
 
-          <div class="highlight">
-            📍 Please reach ${d.block}, ${d.floor}, ${d.room} at least 30 minutes early.
-          </div>
-        </div>
-      </div>
+    <div class="label">Program</div>
+    <div class="value">CLUSTER</div>
+
+    <div class="label">Sub Program</div>
+    <div class="value">EC2 M Mid Sem</div>
+
+    <div class="label">Lab</div>
+    <div class="value">Lab 227</div>
+
+    <div class="label">Floor</div>
+    <div class="value">2nd Floor</div>
+  </div>
+
+  <div class="highlight">
+    📍 Please report to <strong>2nd Floor, Lab 227</strong> and check <strong>System No 242</strong>.
+  </div>
+</div>
+
     `;
   }
 </script>
 
 </body>
 </html>
+
