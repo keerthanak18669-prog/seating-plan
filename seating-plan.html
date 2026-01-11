@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exam Seat Allocation</title>
+<title>Candidate Seating Allocation</title>
 
 <style>
   body {
@@ -135,14 +135,15 @@
 <div class="app">
 
   <div class="title">
-    <h1>Exam Seat Allocation</h1>
-    <p>Enter your Website ID to view your seat</p>
+    <h1>Mvj Collage of Engg (BITS-Examination) </h1>
+    <h2>Candidate Seating Allocation</h2>
+    <p>Enter your Candidate ID to view your seat</p>
   </div>
 
   <div class="search">
     <input
       type="text"
-      id="websiteId"
+      id="CandidateId"
       placeholder="Eg: 2024DA04386"
       oninput="this.value=this.value.toUpperCase()"
     >
@@ -163,7 +164,7 @@
   };
 
   function getDetails() {
-    const id = document.getElementById("websiteId").value.trim();
+    const id = document.getElementById("CandidateId").value.trim();
     const out = document.getElementById("output");
 
     if (!seatingData[id]) {
@@ -198,3 +199,4 @@
 
 </body>
 </html>
+
