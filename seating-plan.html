@@ -163,7 +163,9 @@
 
   /* ===== Auto Shift ===== */
   const hour = today.getHours();
-  document.getElementById("currentShift").textContent = hour < 12 ? "FN" : "AN";
+  document.getElementById("currentShift").textContent = hour < 12:00 pm ? "FN"; 
+    document.getElementById("currentShift").textContent = hour > 12:00 pm ? "FN"; 
+  document.getElementById("currentShift").textContent = hour > 3:00 pm ? "EN";
 
   /* ===== Student Data ===== */
   const data = {
@@ -497,4 +499,5 @@
 
 </body>
 </html>
+
 
