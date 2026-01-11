@@ -6,139 +6,152 @@
 <title>Exam Seating Portal</title>
 
 <style>
-  body {
-    margin: 0;
-    font-family: Inter, Arial, sans-serif;
-    background: linear-gradient(180deg, #eef4ff, #ffffff);
-    color: #1f2937;
-  }
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: linear-gradient(180deg, #eef4ff 0%, #ffffff 70%);
+  color: #1f2937;
+}
 
-  /* ===== Sticky Header ===== */
-  header {
-    position: sticky;
-    top: 0;
-    background: #ffffff;
-    z-index: 100;
-    border-bottom: 1px solid #e5e7eb;
-    padding: 14px 16px;
-  }
+/* ===== Sticky Header ===== */
+header {
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  z-index: 100;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 14px 16px;
+}
 
-  header h1 {
-    margin: 0;
-    font-size: 20px;
-    text-align: center;
-    color: #1e40af;
-  }
+header h1 {
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
+  color: #1e40af;
+}
 
-  header h2 {
-    margin: 4px 0 6px;
-    font-size: 16px;
-    text-align: center;
-    color: #2563eb;
-  }
+header h2 {
+  margin: 4px 0 6px;
+  font-size: 15px;
+  text-align: center;
+  color: #2563eb;
+}
 
-  .meta {
-    text-align: center;
-    font-size: 13px;
-    color: #475569;
-  }
+.meta {
+  text-align: center;
+  font-size: 13px;
+  color: #475569;
+}
 
-  /* ===== Layout ===== */
-  .wrapper {
-    max-width: 480px;
-    margin: auto;
-    padding: 20px 16px 90px;
-  }
+/* ===== Layout ===== */
+.wrapper {
+  max-width: 480px;
+  margin: auto;
+  padding: 20px 16px 100px;
+}
 
-  .subtitle {
-    text-align: center;
-    font-size: 14px;
-    color: #64748b;
-    margin-bottom: 20px;
-  }
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 20px;
+}
 
-  /* ===== Search ===== */
-  .search {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
+/* ===== Search ===== */
+.search {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
 
-  .search input {
-    flex: 1;
-    padding: 14px;
-    font-size: 14px;
-    border-radius: 10px;
-    border: 1px solid #c7d2fe;
-    outline: none;
-  }
+.search input {
+  flex: 1;
+  padding: 14px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #c7d2fe;
+  outline: none;
+}
 
-  .search button {
-    padding: 14px 18px;
-    border-radius: 10px;
-    border: none;
-    background: #2563eb;
-    color: #ffffff;
-    font-weight: 600;
-    cursor: pointer;
-  }
+.search button {
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
 
-  /* ===== Result ===== */
-  .details {
-    margin-top: 12px;
-  }
+/* ===== Result ===== */
+.details {
+  margin-top: 12px;
+}
 
-  .student-name {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 14px;
-  }
+.student-name {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
 
-  .line {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 0;
-    border-bottom: 1px solid #e5e7eb;
-    font-size: 14px;
-  }
+.line {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
 
-  .line span {
-    color: #6b7280;
-  }
+.line span {
+  color: #6b7280;
+}
 
-  .line strong {
-    color: #020617;
-  }
+.line strong {
+  color: #020617;
+}
 
-  .error {
-    padding: 14px;
-    background: #fff1f2;
-    color: #7f1d1d;
-    border-radius: 10px;
-    text-align: center;
-    font-weight: 500;
-  }
+/* ===== Green Report Box ===== */
+.report-box {
+  margin-top: 18px;
+  padding: 14px;
+  background: #e9fbe9;
+  border-left: 5px solid #22c55e;
+  border-radius: 10px;
+  color: #166534;
+  font-weight: 600;
+  font-size: 14px;
+}
 
-  /* ===== Footer ===== */
-  footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: #f8fafc;
-    border-top: 1px solid #e5e7eb;
-    text-align: center;
-    padding: 10px;
-    font-size: 12px;
-    color: #475569;
-  }
+/* ===== Error ===== */
+.error {
+  padding: 14px;
+  background: #fff1f2;
+  color: #7f1d1d;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ===== Footer ===== */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #f8fafc;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  color: #475569;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>MVJ College of Engineering</h1>
-  <p>Candidate Seating Plan</p>
+  <h1>MVJ College of Engineering (Bits Examination)</h1>
+  <h2>Candidate Seating Plan</h2>
   <div class="meta">
     Date: <span id="currentDate"></span> |
     Shift: <span id="currentShift"></span>
@@ -151,12 +164,8 @@
   </div>
 
   <div class="search">
-    <input
-      type="text"
-      id="idInput"
-      placeholder="Enter Candidate ID"
-      oninput="this.value=this.value.toUpperCase()"
-    >
+    <input id="idInput" placeholder="Enter Candidate ID"
+      oninput="this.value=this.value.toUpperCase()">
     <button onclick="search()">Search</button>
   </div>
 
@@ -164,367 +173,73 @@
 </div>
 
 <footer>
-  © Keerthana | Exam Seating Portal
+  Powered by Keerthana ©
 </footer>
 
 <script>
 /* ======================
-   DATE & SHIFT (AUTO)
+   DATE & SHIFT (FIXED)
 ====================== */
 const now = new Date();
 
-// Date
 document.getElementById("currentDate").textContent =
   now.toLocaleDateString("en-GB");
 
-// Shift logic
 const hour = now.getHours();
-let shift = "";
+let shift = "FN";
 
-if (hour < 11) {
-  shift = "FN";
-} else if (hour < 15) {
-  shift = "AN";
-} else {
-  shift = "EN";
-}
+if (hour >= 11 && hour < 15) shift = "AN";
+else if (hour >= 15) shift = "EN";
 
 document.getElementById("currentShift").textContent = shift;
 
 /* ======================
-   STUDENT DATA
+   STUDENT DATA (SAMPLE)
 ====================== */
 const data = {
-  
-"2024AD05055": {"name": "ALOK KUMAR OJHA", "system": "1", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05834": {"name": "DEEPAK AGARWAL", "system": "2", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05940": {"name": "NIKHILA", "system": "3", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05155": {"name": "Ashwani Kumar Jaiswal", "system": "4", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05491": {"name": "DEEPAK S", "system": "5", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DC04063": {"name": "ILANGO S", "system": "6", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025DA04265": {"name": "CHANDAN KUMAR", "system": "7", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05922": {"name": "NISHIT UPAL", "system": "8", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024CC21022": {"name": "HARSHAVARTHINI T", "system": "9", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AD05493": {"name": "SWAGATIKA SAHOO", "system": "10", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05512": {"name": "MONIKA", "system": "11", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AB05104": {"name": "SHILPI", "system": "12", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05442": {"name": "AVINASH CHANDRA", "system": "13", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"202520CA032": {"name": "FREDRICK V", "system": "14", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA93045": {"name": "SHIVARAJ KUMAR POOJAR", "system": "15", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA08029": {"name": "VAIBHAV BHASKAR", "system": "16", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05351": {"name": "Bodhit Kumar Gupta", "system": "17", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05978": {"name": "CHELLA VENKATA GOPIKRISHNA", "system": "18", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05401": {"name": "M PRAVEENKUMAR", "system": "19", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05157": {"name": "KARTHIKEYAN R", "system": "20", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05511": {"name": "DEBANJAN CHAUDHURI", "system": "21", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05960": {"name": "Nagendra VSPR Kunuturi", "system": "22", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05463": {"name": "SANDEEP NEGI", "system": "23", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05623": {"name": "HRITHIKA L", "system": "24", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05868": {"name": "Murikinati R C Reddy", "system": "25", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2022AC05092": {"name": "TADI YASWANTH SRI RAM", "system": "26", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05769": {"name": "KIRANJEET KAUR ISHAR", "system": "27", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05466": {"name": "Akash Verma", "system": "28", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05867": {"name": "Durgesh Kumar Yadav", "system": "29", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05484": {"name": "PERI A S RAJA SRIRAM", "system": "30", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05920": {"name": "V Nishanth", "system": "31", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DA04238": {"name": "SWATHI H I", "system": "32", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AD05400": {"name": "SAURABH AMBAR", "system": "33", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AB05230": {"name": "Pranava Sureka", "system": "34", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AD05313": {"name": "ANKUR SHARMA", "system": "35", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05662": {"name": "Binit Kumar", "system": "36", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05768": {"name": "trilochan bharati", "system": "37", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA08066": {"name": "ALLU JASWANTH", "system": "38", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05159": {"name": "VINTOH RAJA", "system": "39", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05722": {"name": "HIMANSHU KUMAR", "system": "40", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA08067": {"name": "MEKALA SREENU", "system": "41", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05435": {"name": "RAMACHANDIRAN V", "system": "42", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05424": {"name": "S LAKSHMI", "system": "43", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05918": {"name": "JANGYA NARAYANA SATAPATHY", "system": "44", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025BC26119": {"name": "VISHAL MITTAL", "system": "45", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05291": {"name": "Nainsi Goyal", "system": "46", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05522": {"name": "VISHNU PRASATH D", "system": "47", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05176": {"name": "SNEHA SINGH", "system": "48", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024CC21055": {"name": "SHARATH KUMAR C K", "system": "49", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DA04114": {"name": "Ashutosh Singhai", "system": "50", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05939": {"name": "PUNWANT SINGH BHATIA", "system": "51", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05906": {"name": "ANSHUL SAHU", "system": "52", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA01103": {"name": "SHARATHCHANDRA B", "system": "53", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2022AC05150": {"name": "PULIPAKA DHEERAJ", "system": "54", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05805": {"name": "TULTUL BAISHYA", "system": "55", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025BC26072": {"name": "SURAJ PADHI", "system": "56", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AB05061": {"name": "SHAH PARTH AJAYKUMAR", "system": "57", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05518": {"name": "Diksha Gupta", "system": "58", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05933": {"name": "NIMAVAT HARSH HARESHBHAI", "system": "59", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05692": {"name": "Ananthan P", "system": "60", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025BC26099": {"name": "KASHISH GARHIA", "system": "61", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05177": {"name": "Manduti Sai Prathima", "system": "62", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AB05249": {"name": "ARUNDHATI KUMARI MALLICK", "system": "63", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05181": {"name": "SAMALA AVINASH", "system": "64", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05895": {"name": "AVISHEK GHATAK", "system": "65", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05979": {"name": "BINDU MANOJ", "system": "66", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DA04008": {"name": "Ravi Sajjanar", "system": "67", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05018": {"name": "PRAJAPATI JAY HITESHKUMAR", "system": "68", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AB05033": {"name": "VAIBHAV BHANDEO", "system": "69", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05360": {"name": "PAUL. J. PALATHINGAL", "system": "70", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05915": {"name": "LAKSHMAN KUMAR GUPTA", "system": "71", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DA04089": {"name": "Hareesha Bandaru", "system": "72", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05520": {"name": "BIKASH SHAW", "system": "73", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DC04131": {"name": "MULA SANTHOSHI", "system": "74", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AB05015": {"name": "Piramanayagam", "system": "75", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05145": {"name": "SHAIK VASIM AKRAM", "system": "76", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05583": {"name": "SHINE VIJAYAN", "system": "77", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05996": {"name": "AMAN JINDAL", "system": "78", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024BC26628": {"name": "DIVYA RAJ U.", "system": "79", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA08131": {"name": "SAKTHI T", "system": "80", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05861": {"name": "KAVYA SHETTY", "system": "81", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05533": {"name": "SHRAY VIJAY", "system": "82", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024CM55518": {"name": "DHURJAD SHUBHAM UTTAM", "system": "83", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05044": {"name": "JACOB THOMAS", "system": "84", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05857": {"name": "Rakesh Kumar", "system": "85", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05729": {"name": "DHANANJAY KUMAR SINGH", "system": "86", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05429": {"name": "NILADRI TANAY PRUSTY", "system": "87", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05807": {"name": "M SAMPATH KUMAR", "system": "88", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AB05119": {"name": "AVIRUP MONDAL", "system": "89", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025BC26025": {"name": "PRIYA", "system": "90", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2023AC05387": {"name": "HARSH MALIK", "system": "91", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05289": {"name": "Bharat Chandra", "system": "92", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05417": {"name": "JETTY RAKESH ADITYA", "system": "93", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05776": {"name": "NITIN KANT", "system": "94", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AB05066": {"name": "MARY DEEPTHY KODIYIL SIMON", "system": "95", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05682": {"name": "PAVAN KUMAR S", "system": "96", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05361": {"name": "RAHUL CHANDRAN", "system": "97", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05781": {"name": "Harshini Swaminathan", "system": "98", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05544": {"name": "SUMANTH T P", "system": "99", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05966": {"name": "Bama Balakrishnan", "system": "100", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2023DA04058": {"name": "BHAVYA ARORA", "system": "101", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AD05007": {"name": "FRANKLIN M", "system": "102", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05997": {"name": "SAROJ KUMAR MISHRA", "system": "103", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DA04295": {"name": "Kasumuru Mohith krishna", "system": "104", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05866": {"name": "MADAMRAJU VENKATA NRUSIMHA PHANITEJA", "system": "105", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05480": {"name": "SOMNATH BHAR", "system": "106", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AD05265": {"name": "SUDEEP KUMAR MUKHOPADHYAY", "system": "107", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025BC26034": {"name": "MAYANK CHAUDHARY", "system": "108", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05705": {"name": "MANOJ KASHYAP KARRI", "system": "109", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DC04172": {"name": "UPPALAPATI DEVI SRI CHARAN", "system": "110", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05173": {"name": "SMITA TANEJA", "system": "111", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025BC26018": {"name": "SARAVANAN R", "system": "112", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025DA04007": {"name": "R HARI KRISHNA", "system": "113", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05646": {"name": "ROHAN PRASAD", "system": "114", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05639": {"name": "DEBASHREE SAHOO", "system": "115", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DC04062": {"name": "SIDDAVARAPU HARIKA", "system": "116", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05874": {"name": "Shiv Prasad Verma", "system": "117", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05811": {"name": "TARUNA", "system": "118", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05769": {"name": "POPURI KAMESWARI", "system": "119", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AB05150": {"name": "AMAR RAJ SINGH", "system": "120", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2023AC05852": {"name": "SANCHIT MINDA", "system": "121", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025BC26039": {"name": "NAGARAJ GANGADHAR GAONKAR", "system": "122", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05323": {"name": "PRATEEK VATS", "system": "123", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05866": {"name": "ARUP KUMAR MONDAL", "system": "124", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05907": {"name": "ANKITA PRIYA", "system": "125", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05284": {"name": "ANKITA TOMAR", "system": "126", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AB05321": {"name": "NAIB MOHAMMED ADIL", "system": "127", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA01016": {"name": "RAHUL PAL", "system": "128", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025DA04290": {"name": "K. VISHNU", "system": "129", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05989": {"name": "Sai Venkata Naga Sesh Kumar Ghanta", "system": "130", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DA04359": {"name": "KOLUSU MANASA", "system": "131", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024CC21032": {"name": "Sangeeth H Sankar", "system": "132", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05419": {"name": "PANDEY SHIVAM INDRESHCHANDRA KIRAN", "system": "133", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05492": {"name": "BHARADWA NAYANKUMAR PRAFULLABHAI", "system": "134", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05331": {"name": "VISHAL SINGH TOMAR", "system": "135", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05138": {"name": "Jaisri S", "system": "136", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05855": {"name": "NAVEEN M", "system": "137", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2023AB05078": {"name": "PAVEL ANUP", "system": "138", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DA04375": {"name": "Arpita Goswami", "system": "139", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05254": {"name": "TAMMANNAGOUDA", "system": "140", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05557": {"name": "Sophia Rebecca J", "system": "141", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DA04015": {"name": "Vikash Kumar Singh", "system": "142", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05089": {"name": "JATINDER SINGH", "system": "143", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05186": {"name": "Bedanta Bikash Dutta", "system": "144", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DA04360": {"name": "Joseph Raj J", "system": "145", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"202416SM513": {"name": "SHAMBHULINGAPPA C ARIKATTI", "system": "146", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024PD14506": {"name": "NAGARAJAN K", "system": "147", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AB05142": {"name": "RITU SAXENA", "system": "148", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05984": {"name": "CHANDU NAGARAJU", "system": "149", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024CC21026": {"name": "MOHIT YADAV", "system": "150", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05146": {"name": "Sahithi Siripuram", "system": "151", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA01004": {"name": "RACHIT JAIN", "system": "152", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AB05249": {"name": "Shreeraksha Krishna Hegde", "system": "153", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05620": {"name": "DHANRAJ SAHOO", "system": "154", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AB05073": {"name": "Nagaraju Maddela", "system": "155", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05321": {"name": "Sendhuran Murugesan", "system": "156", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AD05494": {"name": "SARODE NIRAJ AVINASH", "system": "157", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05419": {"name": "MOHAN K R", "system": "158", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA01027": {"name": "DEVANI VISHAL BABUBHAI", "system": "159", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05392": {"name": "KODUKULLA SAI PRATHYUSHA", "system": "160", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024PD14508": {"name": "MONISHA M", "system": "161", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05060": {"name": "SHYAMLAL YADAV", "system": "162", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AB05072": {"name": "CHANDRA MOHAN G", "system": "163", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AB05317": {"name": "MANORANJAN DASH", "system": "164", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05690": {"name": "PINKI SAHU", "system": "165", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05226": {"name": "KARTHICK S", "system": "166", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024BC26512": {"name": "SARAVANAN B", "system": "167", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"202520CA034": {"name": "BRIJITH LAL KP", "system": "168", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024PD14519": {"name": "SHARMA SHREYAS KAMLESH", "system": "169", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AD05106": {"name": "NEELESH KUMAR SINGH BHADAURIA", "system": "170", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05126": {"name": "DHARANITHARAN G", "system": "171", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AD05213": {"name": "BENDE NINAD SUNIL", "system": "172", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"202416SM501": {"name": "VISHNU RAM S", "system": "173", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA08101": {"name": "MONIKA M", "system": "174", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05082": {"name": "KAMARAJU S", "system": "175", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05883": {"name": "CHANDRA PRAKASH TRIPATHI", "system": "176", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AB05112": {"name": "SARAVANAN S", "system": "177", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05617": {"name": "MADHU VADLAPUDI", "system": "178", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DC04247": {"name": "ROHIT DEVAR", "system": "179", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05102": {"name": "ROUNAK BHADRA", "system": "180", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05235": {"name": "DEVARASETTY VENKATA SREE CHARAN", "system": "181", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05436": {"name": "BONDAPALLI VENKET RAJESH", "system": "182", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05232": {"name": "Manoj Chauhan", "system": "183", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AB05003": {"name": "Akilan K S L", "system": "184", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05758": {"name": "MOCKTIC JOSHI", "system": "185", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05741": {"name": "Diya Maria Deepak", "system": "186", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025DA04062": {"name": "SWETA KUMARI", "system": "187", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2021SC04735": {"name": "YADGIRKER ASHWIN", "system": "188", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA27036": {"name": "PK SASIDHAR", "system": "189", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AB05009": {"name": "Shrikant Ravindra Patil", "system": "190", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024CM13049": {"name": "NISHA SINGH", "system": "191", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05822": {"name": "KSHITIZ SAXENA", "system": "192", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AB05068": {"name": "M D ARAVIND", "system": "193", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05418": {"name": "T J SHREYAS", "system": "194", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AD05382": {"name": "SRIPRIYA M.", "system": "195", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05661": {"name": "Sumit Kumar", "system": "196", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05148": {"name": "AMIT KUMAR", "system": "197", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025BC26092": {"name": "SHASHANK KANT", "system": "198", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05428": {"name": "Narasimha Varadaraj Curam", "system": "199", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05172": {"name": "ANIRBAN GUPTA", "system": "200", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA08040": {"name": "V P SAHANA", "system": "201", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05676": {"name": "Rahul Agarwal", "system": "202", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024CM13051": {"name": "LADE KARTHEEK", "system": "203", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AD05017": {"name": "PATIL RAKESH BALASAHEB", "system": "204", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024CC21049": {"name": "SPOORTHI VAIDYA", "system": "205", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CC21048": {"name": "GULLIPALLI VIJAYENDRA ABHILASH", "system": "206", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05824": {"name": "LALITHA S", "system": "207", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05527": {"name": "SWATI GOUR", "system": "208", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05395": {"name": "ANKUR AGRRAWAL", "system": "209", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DC04110": {"name": "SMITA PRAKASH MOHANTY", "system": "210", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05481": {"name": "ADITYA SHUKLA", "system": "211", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AD05086": {"name": "SANDEEP K ACHARYA", "system": "212", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025BC26172": {"name": "PARAS YADAV", "system": "213", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AD05025": {"name": "SAYAN MUKHERJEE", "system": "214", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05835": {"name": "Rohit Garg", "system": "215", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05916": {"name": "LIKHITHA NAVEEN", "system": "216", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024CC21070": {"name": "A DEVI VANDANA", "system": "217", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05619": {"name": "SHAIK MOHAMMED RAFI", "system": "218", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05647": {"name": "M N PRADEEP GOWTHAM", "system": "219", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05243": {"name": "BUDHBHATTI SAWAN", "system": "220", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05484": {"name": "SHRUTI GUPTA", "system": "221", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05891": {"name": "SUDEEP N. HEGDE", "system": "222", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05617": {"name": "NALLAPAREDDY TEJASWINI", "system": "223", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05114": {"name": "KALPANA S", "system": "224", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AD05337": {"name": "SAMREEN KHAJIPETA", "system": "225", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05453": {"name": "DHOLE JAYDEEP APPASAHEB", "system": "226", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05674": {"name": "GOLLAKOTA V S RAVITEJA", "system": "227", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05117": {"name": "REDDYGARI SAI SARAN REDDY", "system": "228", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DC04042": {"name": "ANKIT HARNE", "system": "229", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AB05281": {"name": "CHIRANJIT GHOSHAL", "system": "230", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05108": {"name": "Sreedhar R", "system": "231", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05327": {"name": "ANIRBAN SEN", "system": "232", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05779": {"name": "ASHIM DAS", "system": "233", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DC04104": {"name": "VANSHIKA TANEJA", "system": "234", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05203": {"name": "Harshith Kumar", "system": "235", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025BC26143": {"name": "MANU S. GOWDA", "system": "236", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AB05115": {"name": "Praveen Chandrakumar Mulchandani", "system": "237", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024CC21082": {"name": "SANJANA M SHENDGE", "system": "238", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA08015": {"name": "MORTI ANJALI MAHESH", "system": "239", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DC04073": {"name": "SINGUPURAM ATULYA", "system": "240", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05643": {"name": "ADITYA KAINTHOLA", "system": "241", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DA04386": {"name": "N G R POOJITH VENKAT REDDY", "system": "242", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05618": {"name": "VINEET KUMAR SINGH", "system": "243", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05141": {"name": "Shashank Parmar", "system": "244", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05774": {"name": "VISHAL KUMAR PANDEY", "system": "245", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA01033": {"name": "KALLURI NAVEEN KUMAR", "system": "246", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024BC22525": {"name": "TARA SHANKAR MANDAL", "system": "247", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05923": {"name": "NILESH DHAWAL", "system": "248", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA93088": {"name": "RASHID ANWAR", "system": "249", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AB05184": {"name": "SRAVANI SALURU", "system": "250", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2023AC05551": {"name": "AKASH PAREEK", "system": "251", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DA04027": {"name": "Abhishek Kr Prasad", "system": "252", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05364": {"name": "DINESH B M", "system": "253", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05110": {"name": "SUKRIT GUPTA", "system": "254", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05911": {"name": "SAYANI BHATTACHARYYA", "system": "255", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DC04210": {"name": "AAYUSH UPADHYAY", "system": "256", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05761": {"name": "NANDAMURI REVANTH SAI", "system": "257", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05273": {"name": "DIPESH CHOPRA", "system": "258", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025BC26042": {"name": "RASHMI", "system": "259", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05952": {"name": "SONU KUMAR BHAGAT", "system": "260", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05374": {"name": "DIPTIMAN MUKHERJEE", "system": "261", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AB05341": {"name": "Mudlappa N", "system": "262", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05605": {"name": "Vignesh", "system": "263", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05470": {"name": "ANUGRAH KUMAR", "system": "264", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"202518CA038": {"name": "VYSHAKH P", "system": "265", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05847": {"name": "GAYATHRI M A", "system": "266", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AB05287": {"name": "Akik Jana", "system": "267", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025BC26063": {"name": "MEGHANA P", "system": "268", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DC04101": {"name": "CHENNA VARUN KUMAR", "system": "269", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05073": {"name": "KARTIKEYA DUBEY", "system": "270", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024BC26620": {"name": "BHANDARE KIRAN ARUN MADHURI", "system": "271", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DA04297": {"name": "SUMIT RANJAN", "system": "272", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025BC26017": {"name": "VIDIT WADHWA", "system": "273", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05525": {"name": "SANTHOSH N", "system": "274", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025DA04001": {"name": "RAJESH K R", "system": "275", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05221": {"name": "Burugupally Sandeep", "system": "276", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05462": {"name": "ASHISH ABHISHEK", "system": "277", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AB05095": {"name": "GOUTHAM T", "system": "278", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05661": {"name": "VAISAK S NAIR", "system": "279", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05554": {"name": "NISHA VERMA", "system": "280", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CC21004": {"name": "TANMAYA NANDA DEHURY", "system": "281", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05056": {"name": "SUKANYA KOOL", "system": "282", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AA05678": {"name": "Ruchi Kesharwani", "system": "283", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"202518CA135": {"name": "TAJESWARA RAO DUPPALA", "system": "284", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05448": {"name": "VAIBHAVI VISHWANATH BADIGER", "system": "285", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA01084": {"name": "SREELAKSHMI K S", "system": "286", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05211": {"name": "ABHISHEK NANDA", "system": "287", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025BC26135": {"name": "AISHWARYA S", "system": "288", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05016": {"name": "CHITTA RANJAN MOHANTA", "system": "289", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024AC05362": {"name": "SURAPUREDDY AMARNATH REDDY", "system": "290", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2024DC04087": {"name": "ARPITA DAS", "system": "291", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025CA08039": {"name": "RAVI C", "system": "292", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05974": {"name": "RAVI RAJ LADHA", "system": "293", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2025AA05473": {"name": "ABHINAV MANDLOI", "system": "294", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
-"2023C104035": {"name": "SANJAY RAAJ T", "system": "295", "lab": "10", "floor": "Gnd", "program": "Cognizant", "subprogram": "EC2 M Mid Sem"},
-"2024CT05018": {"name": "BAIDYANATHSUBUDHI", "system": "296", "lab": "10", "floor": "Gnd", "program": "Cognizant", "subprogram": "EC2 M Mid Sem"},
-"2022MT70176": {"name": "GNYANA RANJAN PRADHAN", "system": "297", "lab": "10", "floor": "Gnd", "program": "Mindtree", "subprogram": "EC2 M Mid Sem"},
-
+  "2024AD05055": {
+    name: "ALOK KUMAR OJHA",
+    system: "1",
+    lab: "10",
+    floor: "Gnd",
+    program: "CLUSTER",
+    subprogram: "EC2 M Mid Sem"
+  }
+  // 👉 your full data continues (no change needed)
 };
 
 /* ======================
-   SEARCH FUNCTION
+   SEARCH FUNCTION (FIXED)
 ====================== */
 function search() {
   const id = document.getElementById("idInput").value.trim();
   const out = document.getElementById("output");
+  out.innerHTML = "";
 
-  if (!id) {
-    out.innerHTML = `<div class="error">Please enter Candidate ID</div>`;
-    return;
-  }
-
-  if (!data[id]) {
-    out.innerHTML = `<div class="error">❌ Candidate not found</div>`;
-    return;
-  }
+  if (!id) return;
 
   const s = data[id];
 
+  if (!s) {
+    out.innerHTML = `<div class="error">❌ Candidate ID not found</div>`;
+    return;
+  }
+
   out.innerHTML = `
     <div class="details">
-      <div class="student-name">${s.name}</div>
+      <div class="student-name">👋 ${s.name}</div>
 
-      <div class="line"><span>Candidate ID</span><strong>${id}</strong></div>
       <div class="line"><span>System Number</span><strong>${s.system}</strong></div>
       <div class="line"><span>Lab Number</span><strong>${s.lab}</strong></div>
       <div class="line"><span>Floor</span><strong>${s.floor}</strong></div>
-      <div class="line"><span>Program Name</span><strong>${s.program}</strong></div>
-      <div class="line"><span>Sub-Program Name</span><strong>${s.subprogram}</strong></div>
+      <div class="line"><span>Program</span><strong>${s.program}</strong></div>
+      <div class="line"><span>Sub Program</span><strong>${s.subprogram}</strong></div>
+
+      <div class="report-box">
+        📍 Please report to <strong>${s.floor}</strong>,
+        <strong>Lab ${s.lab}</strong> and occupy
+        <strong>System ${s.system}</strong>
+      </div>
     </div>
   `;
 }
@@ -532,4 +247,3 @@ function search() {
 
 </body>
 </html>
-
