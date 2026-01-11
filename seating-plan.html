@@ -162,10 +162,21 @@
   document.getElementById("currentDate").textContent = formattedDate;
 
   /* ===== Auto Shift ===== */
-  const hour = today.getHours();
-  document.getElementById("currentShift").textContent = hour < 12:00 pm ? "FN"; 
-    document.getElementById("currentShift").textContent = hour > 12:00 pm ? "FN"; 
-  document.getElementById("currentShift").textContent = hour > 3:00 pm ? "EN";
+ const today = new Date();
+const hour = today.getHours(); // 0 - 23
+
+let shift = "";
+
+if (hour < 11) {
+  shift = "FN";
+} else if (hour < 15) {
+  shift = "AN";
+} else {
+  shift = "EN";
+}
+
+document.getElementById("currentShift").textContent = shift;
+;
 
   /* ===== Student Data ===== */
   const data = {
@@ -499,6 +510,7 @@
 
 </body>
 </html>
+
 
 
 
