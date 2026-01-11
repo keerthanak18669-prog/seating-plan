@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Candidate Seating Details</title>
+<title>Exam Seating Portal</title>
 
 <style>
   body {
@@ -26,27 +26,28 @@
   header h1 {
     margin: 0;
     font-size: 20px;
-    color: #1e40af;
     text-align: center;
+    color: #1e40af;
   }
 
   header h2 {
     margin: 4px 0 6px;
     font-size: 16px;
     text-align: center;
-    color: #1e40af;
+    color: #2563eb;
   }
 
-  header .meta {
+  .meta {
     text-align: center;
     font-size: 13px;
     color: #475569;
   }
 
+  /* ===== Layout ===== */
   .wrapper {
     max-width: 480px;
     margin: auto;
-    padding: 20px 16px 80px;
+    padding: 20px 16px 90px;
   }
 
   .subtitle {
@@ -56,6 +57,7 @@
     margin-bottom: 20px;
   }
 
+  /* ===== Search ===== */
   .search {
     display: flex;
     gap: 10px;
@@ -65,9 +67,9 @@
   .search input {
     flex: 1;
     padding: 14px;
+    font-size: 14px;
     border-radius: 10px;
     border: 1px solid #c7d2fe;
-    font-size: 14px;
     outline: none;
   }
 
@@ -76,11 +78,12 @@
     border-radius: 10px;
     border: none;
     background: #2563eb;
-    color: white;
+    color: #ffffff;
     font-weight: 600;
     cursor: pointer;
   }
 
+  /* ===== Result ===== */
   .details {
     margin-top: 12px;
   }
@@ -116,6 +119,7 @@
     font-weight: 500;
   }
 
+  /* ===== Footer ===== */
   footer {
     position: fixed;
     bottom: 0;
@@ -136,15 +140,23 @@
   <h1>MVJ College of Engineering</h1>
   <h2>Candidate Seating Plan</h2>
   <div class="meta">
-    Date: <span id="currentDate"></span> | Shift: <span id="currentShift"></span>
+    Date: <span id="currentDate"></span> |
+    Shift: <span id="currentShift"></span>
   </div>
 </header>
 
 <div class="wrapper">
-  <div class="subtitle">Enter your Candidate ID to view your allocation</div>
+  <div class="subtitle">
+    Enter your Candidate ID to view your exam seating details
+  </div>
 
   <div class="search">
-    <input id="idInput" placeholder="Eg: 2025AB00000" oninput="this.value=this.value.toUpperCase()">
+    <input
+      type="text"
+      id="idInput"
+      placeholder="Enter Candidate ID"
+      oninput="this.value=this.value.toUpperCase()"
+    >
     <button onclick="search()">Search</button>
   </div>
 
@@ -152,19 +164,21 @@
 </div>
 
 <footer>
-  Powered by Keerthana
+  © Keerthana | Exam Seating Portal
 </footer>
 
 <script>
-  /* ===== Auto Date ===== */
-  const today = new Date();
-  const formattedDate = today.toLocaleDateString("en-GB");
-  document.getElementById("currentDate").textContent = formattedDate;
+/* ======================
+   DATE & SHIFT (AUTO)
+====================== */
+const now = new Date();
 
-  /* ===== Auto Shift ===== */
- const today = new Date();
-const hour = today.getHours(); // 0 - 23
+// Date
+document.getElementById("currentDate").textContent =
+  now.toLocaleDateString("en-GB");
 
+// Shift logic
+const hour = now.getHours();
 let shift = "";
 
 if (hour < 11) {
@@ -176,11 +190,12 @@ if (hour < 11) {
 }
 
 document.getElementById("currentShift").textContent = shift;
-;
 
-  /* ===== Student Data ===== */
-  const data = {
-   
+/* ======================
+   STUDENT DATA
+====================== */
+const data = {
+  
 "2024AD05055": {"name": "ALOK KUMAR OJHA", "system": "1", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
 "2024AC05834": {"name": "DEEPAK AGARWAL", "system": "2", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
 "2024AC05940": {"name": "NIKHILA", "system": "3", "lab": "10", "floor": "Gnd", "program": "CLUSTER", "subprogram": "EC2 M Mid Sem"},
@@ -479,38 +494,41 @@ document.getElementById("currentShift").textContent = shift;
 "2024CT05018": {"name": "BAIDYANATHSUBUDHI", "system": "296", "lab": "10", "floor": "Gnd", "program": "Cognizant", "subprogram": "EC2 M Mid Sem"},
 "2022MT70176": {"name": "GNYANA RANJAN PRADHAN", "system": "297", "lab": "10", "floor": "Gnd", "program": "Mindtree", "subprogram": "EC2 M Mid Sem"},
 
-  };
+};
 
-  function search() {
-    const id = document.getElementById("idInput").value.trim();
-    const output = document.getElementById("output");
+/* ======================
+   SEARCH FUNCTION
+====================== */
+function search() {
+  const id = document.getElementById("idInput").value.trim();
+  const out = document.getElementById("output");
 
-    if (!data[id]) {
-      output.innerHTML = `<div class="error">No record found for this Candidate ID</div>`;
-      return;
-    }
-
-    const s = data[id];
-
-    output.innerHTML = `
-      <div class="details">
-        <div class="student-name">${s.name}</div>
-
-        <div class="line"><span>Candidate ID</span><strong>${id}</strong></div>
-        <div class="line"><span>Candidate Name</span><strong>${s.name}</strong></div>
-        <div class="line"><span>System Number</span><strong>${s.system}</strong></div>
-        <div class="line"><span>Lab Number</span><strong>${s.lab}</strong></div>
-        <div class="line"><span>Floor</span><strong>${s.floor}</strong></div>
-        <div class="line"><span>Program Name</span><strong>${s.program}</strong></div>
-        <div class="line"><span>Sub-Program Name</span><strong>${s.subprogram}</strong></div>
-      </div>
-    `;
+  if (!id) {
+    out.innerHTML = `<div class="error">Please enter Candidate ID</div>`;
+    return;
   }
+
+  if (!data[id]) {
+    out.innerHTML = `<div class="error">❌ Candidate not found</div>`;
+    return;
+  }
+
+  const s = data[id];
+
+  out.innerHTML = `
+    <div class="details">
+      <div class="student-name">${s.name}</div>
+
+      <div class="line"><span>Candidate ID</span><strong>${id}</strong></div>
+      <div class="line"><span>System Number</span><strong>${s.system}</strong></div>
+      <div class="line"><span>Lab Number</span><strong>${s.lab}</strong></div>
+      <div class="line"><span>Floor</span><strong>${s.floor}</strong></div>
+      <div class="line"><span>Program Name</span><strong>${s.program}</strong></div>
+      <div class="line"><span>Sub-Program Name</span><strong>${s.subprogram}</strong></div>
+    </div>
+  `;
+}
 </script>
 
 </body>
 </html>
-
-
-
-
