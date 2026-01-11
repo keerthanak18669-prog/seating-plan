@@ -2,54 +2,85 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Exam Seating Details</title>
+<title>Exam Seating Information</title>
 
 <style>
   body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #ffffff;
-    color: #000;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f5f9ff;
+    color: #1f2937;
     margin: 40px;
   }
 
   h1 {
-    font-size: 20px;
-    margin-bottom: 20px;
+    font-size: 22px;
+    color: #1e40af;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 30px;
   }
 
   label {
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 600;
+    color: #334155;
   }
 
   input {
     font-size: 14px;
-    padding: 6px;
-    width: 260px;
-    margin-right: 10px;
+    padding: 8px 10px;
+    width: 280px;
+    border: 1px solid #c7d2fe;
+    border-radius: 4px;
+    outline: none;
+  }
+
+  input:focus {
+    border-color: #2563eb;
+    background: #eef2ff;
   }
 
   button {
     font-size: 14px;
-    padding: 6px 14px;
+    padding: 8px 18px;
+    margin-left: 10px;
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
   }
 
+  button:hover {
+    background: #1d4ed8;
+  }
+
   .result {
-    margin-top: 30px;
-    font-size: 14px;
-    line-height: 1.8;
+    margin-top: 35px;
+    padding-left: 12px;
+    border-left: 4px solid #22c55e;
+    background: #f0fdf4;
+    font-size: 14.5px;
+    line-height: 1.9;
   }
 
   .result-title {
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-decoration: underline;
+    font-weight: 600;
+    color: #166534;
+    margin-bottom: 8px;
   }
 
   .not-found {
-    color: #000;
-    font-style: italic;
+    margin-top: 35px;
+    padding-left: 12px;
+    border-left: 4px solid #ef4444;
+    background: #fef2f2;
+    color: #7f1d1d;
+    font-size: 14px;
   }
 </style>
 </head>
@@ -57,15 +88,63 @@
 <body>
 
 <h1>Exam Seating Information</h1>
+<div class="subtitle">
+  Enter your Website ID to view your exam seating details
+</div>
 
-<label for="websiteId">Enter Website ID:</label><br><br>
+<label for="websiteId">Website ID</label><br><br>
 <input type="text" id="websiteId" placeholder="Eg: WEB20260045">
 <button onclick="getDetails()">Get Details</button>
 
-<div class="result" id="result"></div>
+<div id="result"></div>
 
 <script>
   const seatingData = {
     "WEB20260045": {
       name: "Keerthana K",
-      block: "Admi
+      block: "Admin Block",
+      floor: "1st Floor",
+      lab: "Computer Lab – II",
+      room: "Room No. 13",
+      seat: "Seat No. 32"
+    },
+    "WEB20260052": {
+      name: "Rahul S",
+      block: "Admin Block",
+      floor: "1st Floor",
+      lab: "Computer Lab – I",
+      room: "Room No. 11",
+      seat: "Seat No. 18"
+    }
+  };
+
+  function getDetails() {
+    const id = document.getElementById("websiteId").value.trim();
+    const resultDiv = document.getElementById("result");
+
+    if (!seatingData[id]) {
+      resultDiv.innerHTML = `
+        <div class="not-found">
+          Seating details not found. Please verify your Website ID.
+        </div>`;
+      return;
+    }
+
+    const d = seatingData[id];
+
+    resultDiv.innerHTML = `
+      <div class="result">
+        <div class="result-title">Seating Details</div>
+        <strong>Name</strong> : ${d.name}<br>
+        <strong>Block</strong> : ${d.block}<br>
+        <strong>Floor</strong> : ${d.floor}<br>
+        <strong>Lab</strong> : ${d.lab}<br>
+        <strong>Room Number</strong> : ${d.room}<br>
+        <strong>Seat Number</strong> : ${d.seat}
+      </div>
+    `;
+  }
+</script>
+
+</body>
+</html>
