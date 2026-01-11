@@ -8,8 +8,9 @@
   body {
     margin: 0;
     font-family: Inter, "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(180deg, #f0f7ff, #ffffff);
-    color: #1f2937;
+    background: linear-gradient(180deg, #eef5ff 0%, #ffffff 60%);
+    color: #1f2937;  
+  min-height: 100vh;
   }
 
   .container {
@@ -128,6 +129,39 @@
     max-width: 640px;
     margin: auto;
   }
+  @media (max-width: 600px) {
+  .container {
+    margin: 40px auto;
+  }
+
+ .header h1 {
+  letter-spacing: -0.5px;
+
+  }
+
+  .header p {
+    font-size: 14px;
+  }
+
+  .search-box {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .search-box input {
+    max-width: 100%;
+  }
+
+  .search-box button {
+    width: 100%;
+  }
+
+  .result-card,
+  .not-found {
+    margin-top: 20px;
+  }
+}
+
 </style>
 </head>
 
@@ -208,6 +242,7 @@
 
 </body>
 </html>
+
 
 
 
