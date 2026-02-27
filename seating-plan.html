@@ -6,14 +6,13 @@
 <title>Candidate Seating Portal</title>
 
 <style>
+/* (Your full CSS remains same — no change needed) */
 body {
   margin: 0;
   font-family: Inter, "Book Antiqua", sans-serif;
   background: linear-gradient(180deg, #f2f7ff 0%, #ffffff 60%);
   color: #1f2937;
 }
-
-/* ===== Sticky Header ===== */
 header {
   position: sticky;
   top: 0;
@@ -22,48 +21,39 @@ header {
   border-bottom: 1px solid #dbeafe;
   padding: 14px 16px;
 }
-
 header h1 {
   margin: 0;
   font-size: clamp(14px, 4vw, 18px);
   text-align: center;
   color: #1e40af;
 }
-
 header h2 {
   margin: 4px 0 6px;
   font-size: 15px;
   text-align: center;
   color: #2563eb;
 }
-
 .meta {
   text-align: center;
   font-size: 13px;
   color: #475569;
 }
-
-/* ===== Layout ===== */
 .wrapper {
   max-width: 480px;
   margin: auto;
   padding: 20px 16px 120px;
 }
-
 .subtitle {
   text-align: center;
   font-size: 14px;
   color: #64748b;
   margin-bottom: 20px;
 }
-
-/* ===== Search ===== */
 .search {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
 }
-
 .search input {
   flex: 1;
   padding: 14px;
@@ -71,7 +61,6 @@ header h2 {
   border-radius: 12px;
   border: 1.5px solid #c7d2fe;
 }
-
 .search button {
   padding: 14px 22px;
   border-radius: 12px;
@@ -80,7 +69,6 @@ header h2 {
   color: #ffffff;
   font-weight: 600;
 }
-
 .warning {
   padding: 14px;
   background: #fff7ed;
@@ -90,21 +78,17 @@ header h2 {
   font-size: 14px;
   text-align: center;
 }
-
-/* ===== Result ===== */
 .details {
   margin-top: 16px;
   background: #f8fbff;
   border-radius: 14px;
   padding: 16px;
 }
-
 .student-name {
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 14px;
 }
-
 .line {
   display: flex;
   justify-content: space-between;
@@ -112,8 +96,6 @@ header h2 {
   border-bottom: 1px solid #e2e8f0;
   font-size: 14px;
 }
-
-/* ===== Green Report Box ===== */
 .report-box {
   margin-top: 18px;
   padding: 14px 16px;
@@ -124,8 +106,6 @@ header h2 {
   font-weight: 600;
   font-size: 14px;
 }
-
-/* ===== Error ===== */
 .error {
   padding: 14px;
   background: #fff1f2;
@@ -133,8 +113,6 @@ header h2 {
   border-radius: 10px;
   text-align: center;
 }
-
-/* ===== Footer ===== */
 footer {
   position: fixed;
   bottom: 0;
@@ -191,8 +169,11 @@ else if (hour >= 15) shift = "EN";
 document.getElementById("currentShift").textContent = shift;
 
 /* ===== DATA ===== */
+/* Your full data object remains EXACTLY SAME */
+/* No need to change Block property */
 const data = {
- "2023AC05387": {"name": "HARSH MALIK", "system": "1", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+  // (Your entire data object here — keep as it is)
+  "2023AC05387": {"name": "HARSH MALIK", "system": "1", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
 "2024AA05080": {"name": "KUMAR SAURAV", "system": "2", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
 "2024AA05186": {"name": "BEDANTA BIKASH DUTTA", "system": "3", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
 "2024AA05214": {"name": "POLISETTY RAMYA SREE SAI", "system": "4", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
@@ -357,6 +338,18 @@ const data = {
 
 };
 
+/* ===== FLOOR FORMAT FUNCTION ===== */
+function getOrdinal(n) {
+  n = parseInt(n);
+  if (n % 100 >= 11 && n % 100 <= 13) return n + "th";
+  switch (n % 10) {
+    case 1: return n + "st";
+    case 2: return n + "nd";
+    case 3: return n + "rd";
+    default: return n + "th";
+  }
+}
+
 /* ===== SEARCH ===== */
 function search() {
   const id = document.getElementById("idInput").value.trim();
@@ -384,17 +377,17 @@ function search() {
       <div class="student-name">👋 ${s.name}</div>
       <div class="line"><span>System Number</span><strong>${s.system}</strong></div>
       <div class="line"><span>Lab Number</span><strong>${s.lab}</strong></div>
-      <div class="line"><span>Floor</span><strong>${s.floor}</strong></div>
+      <div class="line"><span>Floor</span><strong>${getOrdinal(s.floor)} Floor</strong></div>
       <div class="line"><span>Block</span><strong>${s.Block}</strong></div>
       <div class="line"><span>Program</span><strong>${s.program}</strong></div>
       <div class="line"><span>Sub Program</span><strong>${s.subprogram}</strong></div>
 
       <div class="report-box">
-  📍 Please Report to the <strong>${s.Block} Block</strong>,
-  <strong>${s.floor}nd Floor</strong>,
-  <strong>Lab ${s.lab}</strong>,
-  <strong>System No. ${s.system}</strong>.
-   </div>
+        📍 Please Report to the <strong>${s.Block} Block</strong>,
+        <strong>${getOrdinal(s.floor)} Floor</strong>,
+        <strong>Lab ${s.lab}</strong>,
+        <strong>System No. ${s.system}</strong>.
+      </div>
     </div>
   `;
 }
@@ -402,14 +395,3 @@ function search() {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
