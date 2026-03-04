@@ -1,1 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candidate Seating Portal</title>
+
+<style>
+/*  CSS */
+body {
+  margin: 0;
+  font-family: Inter, "Book Antiqua", sans-serif;
+  background: linear-gradient(180deg, #f2f7ff 0%, #ffffff 60%);
+  color: #1f2937;
+}
+header {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(180deg, #ffffff, #f5f9ff);
+  z-index: 100;
+  border-bottom: 1px solid #dbeafe;
+  padding: 14px 16px;
+}
+header h1 {
+  margin: 0;
+  font-size: clamp(14px, 4vw, 18px);
+  text-align: center;
+  color: #1e40af;
+}
+header h2 {
+  margin: 4px 0 6px;
+  font-size: 15px;
+  text-align: center;
+  color: #2563eb;
+}
+.meta {
+  text-align: center;
+  font-size: 13px;
+  color: #475569;
+}
+.wrapper {
+  max-width: 480px;
+  margin: auto;
+  padding: 20px 16px 120px;
+}
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+.search {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.search input {
+  flex: 1;
+  padding: 14px;
+  font-size: 14px;
+  border-radius: 12px;
+  border: 1.5px solid #c7d2fe;
+}
+.search button {
+  padding: 14px 22px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  font-weight: 600;
+}
+.warning {
+  padding: 14px;
+  background: #fff7ed;
+  color: #9a3412;
+  border-left: 5px solid #f97316;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+.details {
+  margin-top: 16px;
+  background: #f8fbff;
+  border-radius: 14px;
+  padding: 16px;
+}
+.student-name {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.line {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 14px;
+}
+.report-box {
+  margin-top: 18px;
+  padding: 14px 16px;
+  background: linear-gradient(180deg, #eaffea, #f1fff1);
+  border-left: 5px solid #22c55e;
+  border-radius: 12px;
+  color: #166534;
+  font-weight: 600;
+  font-size: 14px;
+}
+.error {
+  padding: 14px;
+  background: #fff1f2;
+  color: #7f1d1d;
+  border-radius: 10px;
+  text-align: center;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #f8fafc;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  color: #475569;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>BITS Examination(Garden city University</h1>
+  <h2>Candidate Seating Portal</h2>
+  <div class="meta">
+    Date: <span id="currentDate"></span> |
+    Shift: <span id="currentShift"></span>
+  </div>
+</header>
+
+<div class="wrapper">
+  <div class="subtitle">
+    Enter your Candidate ID to view your exam seating details
+  </div>
+
+  <div class="search">
+    <input id="idInput" placeholder="eg:2025AB00000"
+      oninput="this.value=this.value.toUpperCase()">
+    <button onclick="search()">Search</button>
+  </div>
+
+  <div id="output"></div>
+</div>
+
+<footer>
+  Powered by Keerthana ©
+</footer>
+
+<script>
+/* ===== DATE & SHIFT ===== */
+const now = new Date();
+document.getElementById("currentDate").textContent =
+  now.toLocaleDateString("en-GB");
+
+const hour = now.getHours();
+let shift = "FN";
+if (hour >= 11 && hour < 15) shift = "AN";
+else if (hour >= 15) shift = "EN";
+document.getElementById("currentShift").textContent = shift;
+
+const data = {
+  //  data object 
+"2024AA05124": {"name": "K JAGADEESH KUMAR", "system": "1", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AA05186": {"name": "BEDANTA BIKASH DUTTA", "system": "2", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AA05321": {"name": "SENDHURAN M", "system": "3", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AA05382": {"name": "MOHAPATRA SWADESH KUMAR NAMITARANI", "system": "4", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AA05478": {"name": "SANJAY T", "system": "5", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AA05487": {"name": "SUBHASISH DATTA", "system": "6", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AA05548": {"name": "MOHAMMAD RAFEEUDDIN", "system": "7", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AA05909": {"name": "BORIGE ABHIRAM", "system": "8", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AB05103": {"name": "AGRIMA SHARMA", "system": "9", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AB05287": {"name": "AKIK JANA", "system": "10", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AC05129": {"name": "MANVENDRA SINGH", "system": "11", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AC05209": {"name": "ABIRAMI T", "system": "12", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AC05473": {"name": "AKKIREDDY PRANITH", "system": "13", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AC05567": {"name": "KARTHIK ANAND V", "system": "14", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AC05912": {"name": "K PRATHAM PRABHU", "system": "15", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AC05915": {"name": "SHASHANK S HEGDE", "system": "16", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AC05916": {"name": "LIKHITHA NAVEEN", "system": "17", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AC05976": {"name": "RISHABH SARASWAT", "system": "18", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AD05088": {"name": "SNEHA S GADAG", "system": "19", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024AD05357": {"name": "HARI SHARMA", "system": "20", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024BC59548": {"name": "PAVITHRAPRIYADHARSHINI J", "system": "21", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024CM13062": {"name": "ADITYA MOHAN", "system": "22", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024DA04054": {"name": "VISHAL YADAV", "system": "23", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024DA04055": {"name": "DARSHINI MACHAMMA MS", "system": "24", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024DA04243": {"name": "CHANDAN KUMAR MURAW", "system": "25", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024DA04331": {"name": "PRANJAL KHANIKAR", "system": "26", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024DA04382": {"name": "MOHAMMED JUNAID", "system": "27", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2024DC04037": {"name": "RONAK JAIN", "system": "28", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2025CA30059": {"name": "VINAY NINGAPPA CHOUGALE", "system": "29", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+"2025CA30095": {"name": "BASAVARAJA HJ", "system": "30", "lab": "1", "floor": "2", "Block": "Crystal","program": "Cluster", "subprogram": "EC3 R Comprehensive Exams"},
+
+
+};
+
+/* ===== FLOOR FORMAT FUNCTION ===== */
+function getOrdinal(n) {
+  n = parseInt(n);
+  if (n % 100 >= 11 && n % 100 <= 13) return n + "th";
+  switch (n % 10) {
+    case 1: return n + "st";
+    case 2: return n + "nd";
+    case 3: return n + "rd";
+    default: return n + "th";
+  }
+}
+
+/* ===== SEARCH ===== */
+function search() {
+  const id = document.getElementById("idInput").value.trim();
+  const out = document.getElementById("output");
+  out.innerHTML = "";
+
+  if (!id) {
+    out.innerHTML = `
+      <div class="warning">
+        ⚠️ Please enter your Candidate ID to continue
+      </div>
+    `;
+    return;
+  }
+
+  const s = data[id];
+
+  if (!s) {
+    out.innerHTML = `<div class="error">❌ Candidate ID not found Please enquire in media lab(west block)</div>`;
+    return;
+  }
+
+  out.innerHTML = `
+    <div class="details">
+      <div class="student-name">👋 ${s.name}</div>
+      <div class="line"><span>System Number</span><strong>${s.system}</strong></div>
+      <div class="line"><span>Lab Number</span><strong>${s.lab}</strong></div>
+      <div class="line"><span>Floor</span><strong>${getOrdinal(s.floor)} Floor</strong></div>
+      <div class="line"><span>Block</span><strong>${s.Block}</strong></div>
+      <div class="line"><span>Program</span><strong>${s.program}</strong></div>
+      <div class="line"><span>Sub Program</span><strong>${s.subprogram}</strong></div>
+
+     <div class="report-box">
+  📍 Please Report to <strong>${s.Block} Block</strong>,
+  <strong>${getOrdinal(s.floor)} Floor</strong>,
+  <strong>Lab ${s.lab}</strong>,
+  <strong>System No. ${s.system}</strong>.
+  <br><br>
+  📸 <strong>Note:</strong> Please take a screenshot of this page and show it to the invigilators.
+</div>
+    </div>
+  `;
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
 
