@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,6 @@
 <title>Candidate Seating Portal</title>
 
 <style>
-
 body {
   margin: 0;
   font-family: Inter, "Book Antiqua", sans-serif;
@@ -62,8 +62,7 @@ header h2 {
   margin-bottom: 20px;
 }
 
-.search input,
-.search select {
+.search input {
   flex: 1;
   padding: 14px;
   font-size: 14px;
@@ -141,7 +140,6 @@ footer {
   font-size: 12px;
   color: #475569;
 }
-
 </style>
 </head>
 
@@ -150,11 +148,9 @@ footer {
 <header>
 <h1>BITS Examination (Garden City University)</h1>
 <h2>Candidate Seating Portal</h2>
-
 <div class="meta">
 Date: <span id="currentDate"></span>
 </div>
-
 </header>
 
 <div class="wrapper">
@@ -164,20 +160,9 @@ Enter your Candidate ID to view your exam seating details
 </div>
 
 <div class="search">
-
-<select id="shiftSelect">
-<option value="">Select Shift</option>
-<option value="FN">FN</option>
-<option value="AN">AN</option>
-<option value="EN">EN</option>
-</select>
-
-<input id="idInput"
-placeholder="eg:2025AB00000"
+<input id="idInput" placeholder="eg:2025AB00000"
 oninput="this.value=this.value.toUpperCase()">
-
 <button onclick="search()">Search</button>
-
 </div>
 
 <div id="output"></div>
@@ -201,55 +186,16 @@ now.toLocaleDateString("en-GB");
 const data = {
 
 FN:{
-
-"2025CA30124":{
-"name":"RAJESHKANNA R",
-"system":"1",
-"lab":"1",
-"floor":"2",
-"Block":"Crystal",
-"program":"Comprehensive Exams",
-"subprogram":"Cluster"
-},
-
-"2024AD05018":{
-"name":"ARAVINTH T",
-"system":"2",
-"lab":"1",
-"floor":"2",
-"Block":"Crystal",
-"program":"Comprehensive Exams",
-"subprogram":"Cluster"
-}
-
+"2025CA30124":{"name":"RAJESHKANNA R","system":"1","lab":"1","floor":"2","Block":"Crystal"},
+"2024AD05018":{"name":"ARAVINTH T","system":"2","lab":"1","floor":"2","Block":"Crystal"}
 },
 
 AN:{
-
-"2024DC04104":{
-"name":"VANSHIKA TANEJA",
-"system":"3",
-"lab":"1",
-"floor":"2",
-"Block":"Crystal",
-"program":"Comprehensive Exams",
-"subprogram":"Cluster"
-}
-
+"2024DC04104":{"name":"VANSHIKA TANEJA","system":"3","lab":"1","floor":"2","Block":"Crystal"}
 },
 
 EN:{
-
-"2024DA04260":{
-"name":"BALDHA SHIVAM MAHESHBHAI",
-"system":"4",
-"lab":"1",
-"floor":"2",
-"Block":"Crystal",
-"program":"Comprehensive Exams",
-"subprogram":"Cluster"
-}
-
+"2024DA04260":{"name":"BALDHA SHIVAM MAHESHBHAI","system":"4","lab":"1","floor":"2","Block":"Crystal"}
 }
 
 };
@@ -257,21 +203,15 @@ EN:{
 
 /* FLOOR FORMAT */
 
-function getOrdinal(n) {
-
+function getOrdinal(n){
 n=parseInt(n);
-
 if(n%100>=11 && n%100<=13) return n+"th";
-
 switch(n%10){
-
 case 1:return n+"st";
 case 2:return n+"nd";
 case 3:return n+"rd";
 default:return n+"th";
-
 }
-
 }
 
 
@@ -280,32 +220,39 @@ default:return n+"th";
 function search(){
 
 const id=document.getElementById("idInput").value.trim();
-const shift=document.getElementById("shiftSelect").value;
 const out=document.getElementById("output");
 
 out.innerHTML="";
 
-if(!shift){
-
-out.innerHTML=`<div class="warning">⚠️ Please select your shift</div>`;
-return;
-
-}
-
 if(!id){
-
 out.innerHTML=`<div class="warning">⚠️ Please enter your Candidate ID</div>`;
 return;
-
 }
 
-const s=data[shift]?.[id];
+let s=null;
+let shiftFound="";
+
+/* check FN */
+if(data.FN[id]){
+s=data.FN[id];
+shiftFound="FN";
+}
+
+/* check AN */
+else if(data.AN[id]){
+s=data.AN[id];
+shiftFound="AN";
+}
+
+/* check EN */
+else if(data.EN[id]){
+s=data.EN[id];
+shiftFound="EN";
+}
 
 if(!s){
-
-out.innerHTML=`<div class="error">❌ Candidate ID not found for this shift</div>`;
+out.innerHTML=`<div class="error">❌ Candidate ID not found.<br>Please enquire in Media Lab (West Block)</div>`;
 return;
-
 }
 
 out.innerHTML=`
@@ -314,29 +261,19 @@ out.innerHTML=`
 
 <div class="student-name">👋 ${s.name}</div>
 
+<div class="line"><span>Shift</span><strong>${shiftFound}</strong></div>
 <div class="line"><span>System Number</span><strong>${s.system}</strong></div>
-
 <div class="line"><span>Lab Number</span><strong>${s.lab}</strong></div>
-
 <div class="line"><span>Floor</span><strong>${getOrdinal(s.floor)} Floor</strong></div>
-
 <div class="line"><span>Block</span><strong>${s.Block}</strong></div>
 
-<div class="line"><span>Program</span><strong>${s.program}</strong></div>
-
-<div class="line"><span>Sub Program</span><strong>${s.subprogram}</strong></div>
-
 <div class="report-box">
-
 📍 Please Report to <strong>${s.Block} Block</strong>,
 <strong>${getOrdinal(s.floor)} Floor</strong>,
 <strong>Lab ${s.lab}</strong>,
 <strong>System No. ${s.system}</strong>.
-
 <br><br>
-
 📸 <strong>Note:</strong> Keep a screenshot of this page and show it to the invigilators when you report.
-
 </div>
 
 </div>
@@ -349,3 +286,4 @@ out.innerHTML=`
 
 </body>
 </html>
+```
