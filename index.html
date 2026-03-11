@@ -11,10 +11,17 @@
 
 <style>
 
+/* BODY */
+
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#eef2ff,#ffffff);
+
+background:
+radial-gradient(circle at 10% 20%, #e0e7ff 0%, transparent 40%),
+radial-gradient(circle at 90% 80%, #dbeafe 0%, transparent 40%),
+#f8fafc;
+
 color:#1f2937;
 }
 
@@ -46,6 +53,16 @@ color:#2563eb;
 .meta{
 font-size:13px;
 color:#64748b;
+}
+
+header::after{
+content:"";
+display:block;
+height:2px;
+width:80px;
+margin:10px auto 0;
+background:#2563eb;
+border-radius:2px;
 }
 
 /* WRAPPER */
@@ -117,6 +134,12 @@ background:white;
 border-radius:18px;
 padding:20px;
 box-shadow:0 15px 40px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.details:hover{
+transform:translateY(-4px);
+box-shadow:0 20px 50px rgba(0,0,0,0.15);
 }
 
 .student-name{
@@ -191,6 +214,7 @@ color:#6b7280;
 <header>
 <h1>BITS Examination (Garden City University)</h1>
 <h2>Candidate Seating Portal</h2>
+
 <div class="meta">
 Date: <span id="currentDate"></span> |
 Shift: <span id="currentShift"></span>
@@ -205,8 +229,13 @@ Enter your Candidate ID to view your exam seating details
 
 <div class="search-card">
 <div class="search">
-<input id="idInput" placeholder="Enter Candidate ID (eg:2025AB00000)" oninput="this.value=this.value.toUpperCase()">
+
+<input id="idInput"
+placeholder="Enter Candidate ID (Example: 2025CA30124)"
+oninput="this.value=this.value.toUpperCase()">
+
 <button onclick="search()">Search</button>
+
 </div>
 </div>
 
@@ -220,14 +249,20 @@ Candidate Seating System | Developed by Keerthana
 
 <script>
 
+/* AUTO FOCUS INPUT */
+
+window.onload=function(){
+document.getElementById("idInput").focus();
+}
+
 /* DATE */
 
-const now = new Date();
-document.getElementById("currentDate").textContent = now.toLocaleDateString("en-GB");
+const now=new Date();
+document.getElementById("currentDate").textContent=now.toLocaleDateString("en-GB");
 
 /* SHIFT */
 
-const hour = now.getHours();
+const hour=now.getHours();
 let shift="FN";
 
 if(hour>=11 && hour<15) shift="AN";
@@ -248,6 +283,7 @@ const data={
 /* FLOOR FORMAT */
 
 function getOrdinal(n){
+
 n=parseInt(n);
 
 if(n%100>=11 && n%100<=13) return n+"th";
@@ -260,6 +296,7 @@ case 3:return n+"rd";
 default:return n+"th";
 
 }
+
 }
 
 /* SEARCH */
@@ -294,15 +331,10 @@ out.innerHTML=`
 <div class="student-name">👋 ${s.name}</div>
 
 <div class="line"><span>System Number</span><strong>${s.system}</strong></div>
-
 <div class="line"><span>Lab Number</span><strong>${s.lab}</strong></div>
-
 <div class="line"><span>Floor</span><strong>${getOrdinal(s.floor)} Floor</strong></div>
-
 <div class="line"><span>Block</span><strong>${s.Block}</strong></div>
-
 <div class="line"><span>Program</span><strong>${s.program}</strong></div>
-
 <div class="line"><span>Sub Program</span><strong>${s.subprogram}</strong></div>
 
 <div class="report-box">
@@ -323,6 +355,16 @@ out.innerHTML=`
 `;
 
 }
+
+/* PRESS ENTER TO SEARCH */
+
+document.getElementById("idInput").addEventListener("keypress",function(e){
+
+if(e.key==="Enter"){
+search();
+}
+
+});
 
 </script>
 
