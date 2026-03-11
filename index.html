@@ -1,330 +1,330 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Candidate Seating Portal</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-/*  CSS */
-body {
-  margin: 0;
-  font-family: Inter, "Book Antiqua", sans-serif;
-  background: linear-gradient(180deg, #f2f7ff 0%, #ffffff 60%);
-  color: #1f2937;
-}
-header {
-  position: sticky;
-  top: 0;
-  background: white;
-  z-index: 100;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-header h1 {
-  margin: 0;
-  font-size: 18px;
-  text-align: center;
-  color: #1e3a8a;
-  font-weight: 700;
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#eef2ff,#ffffff);
+color:#1f2937;
 }
 
-header h2 {
-  margin-top: 6px;
-  text-align: center;
-  color: #2563eb;
-  font-size: 15px;
-}
-.meta {
-  text-align: center;
-  font-size: 13px;
-  color: #475569;
-}
-.wrapper {
-  max-width: 480px;
-  margin: auto;
-  padding: 20px 16px 120px;
-}
-.subtitle {
-  text-align: center;
-  font-size: 14px;
-  color: #64748b;
-  margin-bottom: 20px;
-}
-  .search { 
-  display: flex; 
-  gap: 10px; 
-  margin-bottom: 20px; }
-.search-card {
-  background: white;
-  padding: 18px;
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-  margin-bottom: 20px;
-}
-.search input {
-  flex: 1;
-  padding: 14px;
-  font-size: 14px;
-  border-radius: 12px;
-  border: 1.5px solid #c7d2fe;
-}
-.search button {
-  padding: 14px 22px;
-  border-radius: 12px;
-  border: none;
-  background: linear-gradient(135deg,#2563eb,#1d4ed8);
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
+/* HEADER */
+
+header{
+position:sticky;
+top:0;
+background:white;
+padding:18px;
+text-align:center;
+box-shadow:0 4px 12px rgba(0,0,0,0.06);
+border-bottom:1px solid #e5e7eb;
 }
 
-.search button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+header h1{
+margin:0;
+font-size:18px;
+color:#1e3a8a;
+font-weight:700;
 }
-  
-.warning {
-  padding: 14px;
-  background: #fff7ed;
-  color: #9a3412;
-  border-left: 5px solid #f97316;
-  border-radius: 10px;
-  font-size: 14px;
-  text-align: center;
+
+header h2{
+margin:4px 0;
+font-size:15px;
+color:#2563eb;
 }
-.details {
-  margin-top: 16px;
-  background: white;
-  border-radius: 16px;
-  padding: 18px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+.meta{
+font-size:13px;
+color:#64748b;
 }
-.student-name {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 14px;
-  color: #1e40af;
-  text-align: center;
+
+/* WRAPPER */
+
+.wrapper{
+max-width:520px;
+margin:auto;
+padding:30px 20px 120px;
 }
-.line {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px dashed #e2e8f0;
-  font-size: 14px;
+
+/* SUBTITLE */
+
+.subtitle{
+text-align:center;
+font-size:14px;
+color:#64748b;
+margin-bottom:18px;
 }
-.report-box {
-  margin-top: 20px;
-  padding: 16px;
-  background: #ecfdf5;
-  border-left: 6px solid #16a34a;
-  border-radius: 12px;
-  color: #065f46;
-  font-weight: 500;
-  font-size: 14px;
+
+/* SEARCH CARD */
+
+.search-card{
+background:white;
+padding:22px;
+border-radius:16px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+margin-bottom:20px;
 }
-.error {
-  padding: 14px;
-  background: #fff1f2;
-  color: #7f1d1d;
-  border-radius: 10px;
-  text-align: center;
+
+.search{
+display:flex;
+gap:10px;
 }
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: white;
-  border-top: 1px solid #e5e7eb;
-  text-align: center;
-  padding: 12px;
-  font-size: 12px;
-  color: #64748b;
+
+.search input{
+flex:1;
+padding:14px;
+font-size:14px;
+border-radius:10px;
+border:1px solid #cbd5f5;
+outline:none;
 }
+
+.search input:focus{
+border-color:#2563eb;
+box-shadow:0 0 0 3px rgba(37,99,235,0.15);
+}
+
+.search button{
+padding:14px 20px;
+border:none;
+border-radius:10px;
+background:#2563eb;
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:0.2s;
+}
+
+.search button:hover{
+background:#1d4ed8;
+}
+
+/* RESULT CARD */
+
+.details{
+margin-top:18px;
+background:white;
+border-radius:18px;
+padding:20px;
+box-shadow:0 15px 40px rgba(0,0,0,0.1);
+}
+
+.student-name{
+font-size:20px;
+font-weight:600;
+margin-bottom:16px;
+color:#1e3a8a;
+text-align:center;
+}
+
+.line{
+display:flex;
+justify-content:space-between;
+padding:12px 0;
+border-bottom:1px solid #f1f5f9;
+font-size:14px;
+}
+
+/* REPORT BOX */
+
+.report-box{
+margin-top:20px;
+padding:18px;
+background:#eff6ff;
+border-left:5px solid #2563eb;
+border-radius:12px;
+color:#1e3a8a;
+font-size:14px;
+}
+
+/* WARNING */
+
+.warning{
+padding:14px;
+background:#fff7ed;
+color:#9a3412;
+border-left:5px solid #f97316;
+border-radius:10px;
+text-align:center;
+}
+
+/* ERROR */
+
+.error{
+padding:14px;
+background:#fff1f2;
+color:#7f1d1d;
+border-radius:10px;
+text-align:center;
+}
+
+/* FOOTER */
+
+footer{
+position:fixed;
+bottom:0;
+width:100%;
+background:white;
+border-top:1px solid #e5e7eb;
+text-align:center;
+padding:12px;
+font-size:12px;
+color:#6b7280;
+}
+
 </style>
+
 </head>
 
 <body>
 
 <header>
-  <h1>BITS Examination (Garden City University)</h1>
-  <h2>Candidate Seating Portal</h2>
-  <div class="meta">
-    Date: <span id="currentDate"></span> |
-    Shift: <span id="currentShift"></span>
-  </div>
+<h1>BITS Examination (Garden City University)</h1>
+<h2>Candidate Seating Portal</h2>
+<div class="meta">
+Date: <span id="currentDate"></span> |
+Shift: <span id="currentShift"></span>
+</div>
 </header>
 
 <div class="wrapper">
-  <div class="subtitle">
-    Enter your Candidate ID to view your exam seating details
-  </div>
 
- <div class="search-card">
-  <div class="search">
-    <input id="idInput" placeholder="Enter Candidate ID (eg:2025AB00000)"
-      oninput="this.value=this.value.toUpperCase()">
-    <button onclick="search()">Search</button>
-  </div>
+<div class="subtitle">
+Enter your Candidate ID to view your exam seating details
 </div>
-<div class="portal-tag">
-  Secure Candidate Lookup Portal
+
+<div class="search-card">
+<div class="search">
+<input id="idInput" placeholder="Enter Candidate ID (eg:2025AB00000)" oninput="this.value=this.value.toUpperCase()">
+<button onclick="search()">Search</button>
 </div>
-  <div id="output"></div>
+</div>
+
+<div id="output"></div>
+
 </div>
 
 <footer>
-  Powered by Keerthana ©
+Candidate Seating System | Developed by Keerthana
 </footer>
 
 <script>
-/* ===== DATE & SHIFT ===== */
+
+/* DATE */
+
 const now = new Date();
-document.getElementById("currentDate").textContent =
-  now.toLocaleDateString("en-GB");
+document.getElementById("currentDate").textContent = now.toLocaleDateString("en-GB");
+
+/* SHIFT */
 
 const hour = now.getHours();
-let shift = "FN";
-if (hour >= 11 && hour < 15) shift = "AN";
-else if (hour >= 15) shift = "EN";
-document.getElementById("currentShift").textContent = shift;
+let shift="FN";
 
-const data = {
-  //  data object 
+if(hour>=11 && hour<15) shift="AN";
+else if(hour>=15) shift="EN";
 
-"2025CA30124": {"name": "RAJESHKANNA R", "system": "1", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AD05018": {"name": "ARAVINTH T", "system": "2", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024DC04104": {"name": "VANSHIKA TANEJA", "system": "3", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024DA04260": {"name": "BALDHA SHIVAM MAHESHBHAI", "system": "4", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AB05198": {"name": "SUDHESHNA KULKARNI", "system": "5", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05522": {"name": "VISHNU PRASATH D", "system": "6", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024DA04041": {"name": "TIDKE RUDRANI RAJESH", "system": "7", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AB05050": {"name": "B DASARADHARAMULU", "system": "8", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024DA04031": {"name": "SHUBHAM KUMAR SINGH", "system": "9", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AB05041": {"name": "KHARAVELA PANDA", "system": "10", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05256": {"name": "RAJINI MATHEW", "system": "11", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05306": {"name": "HIRDALAPPA H", "system": "12", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AA05557": {"name": "SOPHIA REBECCA J", "system": "13", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AA05295": {"name": "SAURABH UPADHYAY", "system": "14", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05361": {"name": "RAHUL CHANDRAN", "system": "15", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024DA04114": {"name": "ASHUTOSH SINGHAI", "system": "16", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05339": {"name": "MOHIT GUPTA", "system": "17", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AA05781": {"name": "HARSHINI S", "system": "18", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AA05232": {"name": "MANOJ CHAUHAN", "system": "19", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AA05675": {"name": "NARAYANAN P", "system": "20", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05124": {"name": "SUSHEEL R N", "system": "21", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05668": {"name": "G SHRUTI", "system": "22", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024DA04342": {"name": "HORANE TANUJA PANDURANG", "system": "23", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AB05192": {"name": "V K RAGHAVENDRA", "system": "24", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AD05281": {"name": "PAVAN M", "system": "25", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05829": {"name": "SAJJALA ASHOK REDDY", "system": "26", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05327": {"name": "INDRANIL BHATTACHARJEE", "system": "27", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024DA04344": {"name": "KUPPANI SAMIREDDY TEJA", "system": "28", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AD05494": {"name": "SARODE NIRAJ AVINASH", "system": "29", "lab": "1", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024CM13061": {"name": "CHERYL BANSAL", "system": "30", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AD05279": {"name": "PIYUSH PRATEEK", "system": "31", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05478": {"name": "SUJIT GOSWAMI", "system": "32", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05032": {"name": "KADIRI VIJAYA KUMAR REDDY", "system": "33", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024DA04128": {"name": "THITHY ALEKHYA", "system": "34", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05405": {"name": "KOMAL CHAUHAN", "system": "35", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05441": {"name": "UTPAL SARKAR", "system": "36", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05326": {"name": "SANDEEP KUMAR SINGH", "system": "37", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AD05400": {"name": "SAURABH AMBAR", "system": "38", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AD05055": {"name": "ALOK KUMAR OJHA", "system": "39", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05671": {"name": "ASHNA JOE CYRIAC", "system": "40", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AA05583": {"name": "SHINE V.", "system": "41", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024DA04186": {"name": "RAUNAK RISHABH", "system": "42", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05803": {"name": "POONAM BISWAL", "system": "43", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AB05065": {"name": "ASHISH GHANTI", "system": "44", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AB05137": {"name": "ARPAN PAIN", "system": "45", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024CM13017": {"name": "SHUBHAM DINKAR", "system": "46", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024DA04093": {"name": "MAHARANA KAMAL KUMAR", "system": "47", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AA05351": {"name": "BODHIT KUMAR GUPTA", "system": "48", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05505": {"name": "JANAPALA SREEKANTH REDDY", "system": "49", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05431": {"name": "ASEEM KUMAR RAI", "system": "50", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05191": {"name": "VISHAL GAVAS", "system": "51", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024DA04115": {"name": "ABHIMANYU MITRA", "system": "52", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AD05126": {"name": "YERRA NARENDRA", "system": "53", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024CM13018": {"name": "ASISH KUMAR", "system": "54", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AC05512": {"name": "MONIKA", "system": "55", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024AA05574": {"name": "POOJA P. KUMAR", "system": "56", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2024DA04060": {"name": "ABHISHAIK SRIVASTAVA", "system": "57", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
-"2025CA30037": {"name": "RANJITH R", "system": "58", "lab": "2", "floor": "2", "Block": "Crystal","program": "Comprehensive Exams", "subprogram": "Cluster"},
+document.getElementById("currentShift").textContent=shift;
+
+/* DATA */
+
+const data={
+
+"2025CA30124":{"name":"RAJESHKANNA R","system":"1","lab":"1","floor":"2","Block":"Crystal","program":"Comprehensive Exams","subprogram":"Cluster"},
+"2024AD05018":{"name":"ARAVINTH T","system":"2","lab":"1","floor":"2","Block":"Crystal","program":"Comprehensive Exams","subprogram":"Cluster"},
+"2024DC04104":{"name":"VANSHIKA TANEJA","system":"3","lab":"1","floor":"2","Block":"Crystal","program":"Comprehensive Exams","subprogram":"Cluster"}
 
 };
 
-/* ===== FLOOR FORMAT FUNCTION ===== */
-function getOrdinal(n) {
-  n = parseInt(n);
-  if (n % 100 >= 11 && n % 100 <= 13) return n + "th";
-  switch (n % 10) {
-    case 1: return n + "st";
-    case 2: return n + "nd";
-    case 3: return n + "rd";
-    default: return n + "th";
-  }
+/* FLOOR FORMAT */
+
+function getOrdinal(n){
+n=parseInt(n);
+
+if(n%100>=11 && n%100<=13) return n+"th";
+
+switch(n%10){
+
+case 1:return n+"st";
+case 2:return n+"nd";
+case 3:return n+"rd";
+default:return n+"th";
+
+}
 }
 
-/* ===== SEARCH ===== */
-function search() {
-  const id = document.getElementById("idInput").value.trim();
-  const out = document.getElementById("output");
-  out.innerHTML = "";
+/* SEARCH */
 
-  if (!id) {
-    out.innerHTML = `
-      <div class="warning">
-        ⚠️ Please enter your Candidate ID to continue
-      </div>
-    `;
-    return;
-  }
+function search(){
 
-  const s = data[id];
+const id=document.getElementById("idInput").value.trim();
+const out=document.getElementById("output");
 
-  if (!s) {
-    out.innerHTML = `<div class="error">❌ Candidate ID not found.<br>
-    Please enquire in Media lab(West block)</div>`;
-    return;
-  }
+out.innerHTML="";
 
-  out.innerHTML = `
-    <div class="details">
-      <div class="student-name">👋 ${s.name}</div>
-      <div class="line"><span>System Number</span><strong>${s.system}</strong></div>
-      <div class="line"><span>Lab Number</span><strong>${s.lab}</strong></div>
-      <div class="line"><span>Floor</span><strong>${getOrdinal(s.floor)} Floor</strong></div>
-      <div class="line"><span>Block</span><strong>${s.Block}</strong></div>
-      <div class="line"><span>Program</span><strong>${s.program}</strong></div>
-      <div class="line"><span>Sub Program</span><strong>${s.subprogram}</strong></div>
+if(!id){
 
-     <div class="report-box">
-  📍 Please Report to <strong>${s.Block} Block</strong>,
-  <strong>${getOrdinal(s.floor)} Floor</strong>,
-  <strong>Lab ${s.lab}</strong>,
-  <strong>System No. ${s.system}</strong>.
-  <br><br>
-  📸 <strong>Note:</strong> Keep a screenshot of this page and show it to the invigilators when you report.
+out.innerHTML=`<div class="warning">⚠️ Please enter your Candidate ID</div>`;
+return;
+
+}
+
+const s=data[id];
+
+if(!s){
+
+out.innerHTML=`<div class="error">❌ Candidate ID not found.<br>Please enquire in Media Lab (West Block)</div>`;
+return;
+
+}
+
+out.innerHTML=`
+
+<div class="details">
+
+<div class="student-name">👋 ${s.name}</div>
+
+<div class="line"><span>System Number</span><strong>${s.system}</strong></div>
+
+<div class="line"><span>Lab Number</span><strong>${s.lab}</strong></div>
+
+<div class="line"><span>Floor</span><strong>${getOrdinal(s.floor)} Floor</strong></div>
+
+<div class="line"><span>Block</span><strong>${s.Block}</strong></div>
+
+<div class="line"><span>Program</span><strong>${s.program}</strong></div>
+
+<div class="line"><span>Sub Program</span><strong>${s.subprogram}</strong></div>
+
+<div class="report-box">
+
+📍 Please Report to <strong>${s.Block} Block</strong>,
+<strong>${getOrdinal(s.floor)} Floor</strong>,
+<strong>Lab ${s.lab}</strong>,
+<strong>System No. ${s.system}</strong>.
+
+<br><br>
+
+📸 <strong>Note:</strong> Keep a screenshot of this page and show it to the invigilators.
+
 </div>
-    </div>
-  `;
+
+</div>
+
+`;
+
 }
+
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
