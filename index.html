@@ -16,22 +16,25 @@ body {
 header {
   position: sticky;
   top: 0;
-  background: linear-gradient(180deg, #ffffff, #f5f9ff);
+  background: white;
   z-index: 100;
-  border-bottom: 1px solid #dbeafe;
-  padding: 14px 16px;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 header h1 {
   margin: 0;
-  font-size: clamp(14px, 4vw, 18px);
+  font-size: 18px;
   text-align: center;
-  color: #1e40af;
+  color: #1e3a8a;
+  font-weight: 700;
 }
+
 header h2 {
-  margin: 4px 0 6px;
-  font-size: 15px;
+  margin-top: 6px;
   text-align: center;
   color: #2563eb;
+  font-size: 15px;
 }
 .meta {
   text-align: center;
@@ -49,9 +52,11 @@ header h2 {
   color: #64748b;
   margin-bottom: 20px;
 }
-.search {
-  display: flex;
-  gap: 10px;
+.search-card {
+  background: white;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
   margin-bottom: 20px;
 }
 .search input {
@@ -65,10 +70,18 @@ header h2 {
   padding: 14px 22px;
   border-radius: 12px;
   border: none;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  color: #ffffff;
+  background: linear-gradient(135deg,#2563eb,#1d4ed8);
+  color: white;
   font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
 }
+
+.search button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+  
 .warning {
   padding: 14px;
   background: #fff7ed;
@@ -80,30 +93,33 @@ header h2 {
 }
 .details {
   margin-top: 16px;
-  background: #f8fbff;
-  border-radius: 14px;
-  padding: 16px;
+  background: white;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 .student-name {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   margin-bottom: 14px;
+  color: #1e40af;
+  text-align: center;
 }
 .line {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid #e2e8f0;
+  padding: 12px 0;
+  border-bottom: 1px dashed #e2e8f0;
   font-size: 14px;
 }
 .report-box {
-  margin-top: 18px;
-  padding: 14px 16px;
-  background: linear-gradient(180deg, #eaffea, #f1fff1);
-  border-left: 5px solid #22c55e;
+  margin-top: 20px;
+  padding: 16px;
+  background: #ecfdf5;
+  border-left: 6px solid #16a34a;
   border-radius: 12px;
-  color: #166534;
-  font-weight: 600;
+  color: #065f46;
+  font-weight: 500;
   font-size: 14px;
 }
 .error {
@@ -117,12 +133,12 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background: #f8fafc;
+  background: white;
   border-top: 1px solid #e5e7eb;
   text-align: center;
-  padding: 10px;
+  padding: 12px;
   font-size: 12px;
-  color: #475569;
+  color: #64748b;
 }
 </style>
 </head>
@@ -130,7 +146,7 @@ footer {
 <body>
 
 <header>
-  <h1>BITS Examination(Garden City University</h1>
+  <h1>BITS Examination (Garden City University)</h1>
   <h2>Candidate Seating Portal</h2>
   <div class="meta">
     Date: <span id="currentDate"></span> |
@@ -143,12 +159,16 @@ footer {
     Enter your Candidate ID to view your exam seating details
   </div>
 
+ <div class="search-card">
   <div class="search">
-    <input id="idInput" placeholder="eg:2025AB00000"
+    <input id="idInput" placeholder="Enter Candidate ID (eg:2025AB00000)"
       oninput="this.value=this.value.toUpperCase()">
     <button onclick="search()">Search</button>
   </div>
-
+</div>
+<div class="portal-tag">
+  Secure Candidate Lookup Portal
+</div>
   <div id="output"></div>
 </div>
 
