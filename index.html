@@ -15,7 +15,10 @@
 
 body{
 margin:0;
-font-family:'Poppins',sans-serif;
+font-family:'Poppins',sans-serif';
+min-height:100vh;
+display:flex;
+flex-direction:column;
 
 background:
 radial-gradient(circle at 10% 20%, #e0e7ff 0%, transparent 40%),
@@ -24,7 +27,6 @@ radial-gradient(circle at 90% 80%, #dbeafe 0%, transparent 40%),
 
 color:#1f2937;
 }
-
 /* HEADER */
 
 header{
@@ -68,11 +70,11 @@ border-radius:2px;
 /* WRAPPER */
 
 .wrapper{
+flex:1;
 max-width:520px;
 margin:auto;
-padding:30px 20px 120px;
+padding:30px 20px 80px;
 }
-
 /* SUBTITLE */
 
 .subtitle{
@@ -194,8 +196,6 @@ text-align:center;
 /* FOOTER */
 
 footer{
-position:fixed;
-bottom:0;
 width:100%;
 background:white;
 border-top:1px solid #e5e7eb;
