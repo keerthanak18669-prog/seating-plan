@@ -4,21 +4,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Candidate Seating Portal</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* BODY */
-
 body{
 margin:0;
-font-family:'Poppins',sans-serif';
-min-height:100vh;
-display:flex;
-flex-direction:column;
+font-family:'Poppins',sans-serif;
+overflow-x:hidden;
 
 background:
 radial-gradient(circle at 10% 20%, #e0e7ff 0%, transparent 40%),
@@ -27,6 +22,7 @@ radial-gradient(circle at 90% 80%, #dbeafe 0%, transparent 40%),
 
 color:#1f2937;
 }
+
 /* HEADER */
 
 header{
@@ -37,6 +33,7 @@ padding:18px;
 text-align:center;
 box-shadow:0 4px 12px rgba(0,0,0,0.06);
 border-bottom:1px solid #e5e7eb;
+z-index:10;
 }
 
 header h1{
@@ -70,11 +67,11 @@ border-radius:2px;
 /* WRAPPER */
 
 .wrapper{
-flex:1;
 max-width:520px;
 margin:auto;
-padding:30px 20px 80px;
+padding:30px 20px 140px;
 }
+
 /* SUBTITLE */
 
 .subtitle{
@@ -196,6 +193,8 @@ text-align:center;
 /* FOOTER */
 
 footer{
+position:fixed;
+bottom:0;
 width:100%;
 background:white;
 border-top:1px solid #e5e7eb;
@@ -228,6 +227,7 @@ Enter your Candidate ID to view your exam seating details
 </div>
 
 <div class="search-card">
+
 <div class="search">
 
 <input id="idInput"
@@ -237,6 +237,7 @@ oninput="this.value=this.value.toUpperCase()">
 <button onclick="search()">Search</button>
 
 </div>
+
 </div>
 
 <div id="output"></div>
@@ -244,7 +245,7 @@ oninput="this.value=this.value.toUpperCase()">
 </div>
 
 <footer>
-Candidate Seating System
+Candidate Seating System | Developed by Keerthana
 </footer>
 
 <script>
@@ -319,7 +320,7 @@ const s=data[id];
 
 if(!s){
 
-out.innerHTML=`<div class="error">❌ Candidate ID not found.<br>Please Enquire in Media Lab (West Block)</div>`;
+out.innerHTML=`<div class="error">❌ Candidate ID not found.<br>Please enquire in Media Lab (West Block)</div>`;
 return;
 
 }
@@ -346,7 +347,7 @@ out.innerHTML=`
 
 <br><br>
 
-📸 <strong>Note:</strong> Keep a screenshot of this page and show it to invigilators while you report.
+📸 <strong>Note:</strong> Keep a screenshot of this page and show it to the invigilators.
 
 </div>
 
@@ -356,7 +357,7 @@ out.innerHTML=`
 
 }
 
-/* PRESS ENTER TO SEARCH */
+/* ENTER KEY SEARCH */
 
 document.getElementById("idInput").addEventListener("keypress",function(e){
 
